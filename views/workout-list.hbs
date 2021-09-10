@@ -1,10 +1,15 @@
 <h2>workout list</h2>
 
 {{#each workouts}}
-<p>{{title}}</p>
-{{exercise1}}
 
-{{!-- <img src="{{gifUrl}}">  --}}
+<p>{{title}}</p>
+
+<a href="workout/{{id}}">Add an exercise</a>
+
+
+ <img src="{{gifUrl}}"> 
 
 <hr />
 {{/each}}
+
+{{!-- <img src={{fin.gifUrl}}> --}}
