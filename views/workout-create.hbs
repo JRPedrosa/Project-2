@@ -1,0 +1,38 @@
+<h1>Create wk</h1>
+
+<form action="/create-workout" method="POST">
+
+    <label>Title</label>
+    <input type="text" name="title" />
+
+    <label>EX1</label>
+    {{!-- <input type="text" name="author" /> --}}
+    <select name="exercise1">
+        <option value="0">Select</option>
+        {{#each exec}}
+            <option value={{id}}>{{name}}</option>
+        {{/each}}
+    </select>
+
+    <label>EX2</label>
+    {{!-- <input type="text" name="author" /> --}}
+    <select name="exercise2">
+        <option value="0">Select</option>
+        {{#each exec}}
+            <option value={{id}}>{{name}}</option>
+        {{/each}}
+    </select>
+
+    <label>EX3</label>
+    {{!-- <input type="text" name="author" /> --}}
+    <select name="exercise3">
+        <option value="0">Select</option>
+        {{#each exec}}
+            <option value={{id}}>{{name}}</option>
+        {{/each}}
+    </select>
+
+
+    <button type="submit">Create</button>
+
+</form>
