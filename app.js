@@ -31,4 +31,23 @@ app.use("/", index);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
+
+/* var axios = require("axios").default;
+
+var options = {
+  method: 'GET',
+  url: 'https://exercisedb.p.rapidapi.com/exercises/equipment/%7Btype%7D',
+  headers: {
+    'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
+    'x-rapidapi-key': '5c69d9ad7fmsh37f71ce5cfc1d4dp1c82bfjsn3abce3514042'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+}); */
+
+
 module.exports = app;
