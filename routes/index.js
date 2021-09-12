@@ -64,9 +64,7 @@ router.post("/create-workout", async (req, res) => {
 
 router.get("/workout-list", async (req, res, next) => {
   const workouts = await Workout.find();
-  await axios.request(getAllExercise).then(function (response) {
-    const exec = response.data.
-  })
+ 
   res.render("workout-list", { workouts } );
 });
 

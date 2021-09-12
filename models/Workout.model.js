@@ -18,6 +18,7 @@ const workoutSchema = mongoose.Schema(
         exercise1: String,
         exercise2: String,
         exercise3: String,
+        exercises: [ {} ]
     },
     {
         timestamps: true,
