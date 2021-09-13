@@ -71,18 +71,21 @@ router.get("/create-workout", (req, res, next) => {
 });
 
 router.post("/create-workout", async (req, res) => {
-  const title = req.body.title;
-  await Workout.create({ title });
+  const {title, description, workoutGoals} = req.body;
+  await Workout.create({ title, description, workoutGoals });
 
-  res.redirect("workout/workout-list");
+  res.redirect("workout-list");
 });
 
 router.get("/workout/:id", async (req, res) => {
-  axios
+    const workout = await Workout.findById(req.params.id);
+  
+    axios
     .request(getAllExercise)
     .then(function (response) {
       const exec = response.data;
-      res.render("workout/add-exercise", {exec, id: req.params.id});
+    
+      res.render("workout/add-exercise", {exec, id: req.params.id, workout});
     })
     .catch(function (error) {
       console.error(error);
@@ -104,7 +107,7 @@ router.post("/workout/:id", async (req, res) => {
     $push: { exercise: exerciseFromApi },
   });
 
-  res.redirect(`workout//workout/${req.params.id}`);
+  res.redirect(`/workout/${req.params.id}`);
 });
 
 router.get("/workout-list", async (req, res, next) => {
@@ -112,6 +115,22 @@ router.get("/workout-list", async (req, res, next) => {
  
   res.render("workout/workout-list", { workouts } );
 });
+
+
+router.get("/workout-detail/:id", async (req, res) => {
+    const workout = await Workout.findById(req.params.id);
+    res.render("workout/workout-detail", workout);
+})
+
+
+
+
+
+
+
+
+
+
   // for (obj of workouts) {
   //   var fin = await getById(obj.exercise1)
   //   console.log(fin);

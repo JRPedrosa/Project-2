@@ -2,7 +2,14 @@
 
 {{#each workouts}}
 
-<p>{{title}}</p>
+<a href="/workout-detail/{{id}}">{{title}}</a>
+<br>
+
+{{description}}
+<br>
+{{workoutGoals}}
+
+<br>
 
 <a href="workout/{{id}}">Add an exercise</a>
 
