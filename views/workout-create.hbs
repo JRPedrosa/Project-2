@@ -5,17 +5,16 @@
     <label>Title</label>
     <input type="text" name="title" />
 
-    <label>EX1</label>
 
-    <select name="exercise1">
+    {{!-- <label>EX1</label>
+    <select name="exercise">
         <option value="0">Select</option>
         {{#each exec}}
             <option value={{id}}>{{name}}</option>
         {{/each}}
-    </select>
+    </select> --}}
 
-    <label>EX2</label>
- 
+    {{!-- <label>EX2</label> 
     <select name="exercise2">
         <option value="0">Select</option>
         {{#each exec}}
@@ -24,15 +23,31 @@
     </select>
 
     <label>EX3</label>
-    
     <select name="exercise3">
         <option value="0">Select</option>
         {{#each exec}}
             <option value={{id}}>{{name}}</option>
         {{/each}}
-    </select>
+    </select> --}}
 
+    <br>
+    <br>
+    <label>Description</label>
+     <br>
+    <textarea rows="10" cols="50" name="description"></textarea>
 
-    <button type="submit">Create</button>
+    <br>
+    <label>Workout Goals</label>
+     <select name="workoutGoals">
+    <option value="0">Select author</option>
+    {{#each }}
+      <option value={{id}}>{{name}}</option>
+    {{/each}}
+  </select>
+
+    <br>
+    <br>
+    <br>
+    <button type="submit">Post</button>
 
 </form>
