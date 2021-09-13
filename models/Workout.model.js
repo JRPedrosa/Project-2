@@ -6,97 +6,103 @@ const workoutSchema = mongoose.Schema(
         type: String,
         required: true,
     },
- 
-    day1: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
-    },
+    days: {
 
-    day2: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
-    },
+      day1: {
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
+  
+      day2: {
+        
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
+  
+      day3: {
+        
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
+  
+      day4: {
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
+  
+      day5: {
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
+  
+      day6: {
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
+  
+      day7: {
+        exercise: [
+          {
+            bodyPart: String,
+            equipment: String,
+            gifUrl: String,
+            id: String,
+            name: String,
+            target: String,
+          },
+        ],
+      },
 
-    day3: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
     },
-
-    day4: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
-    },
-
-    day5: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
-    },
-
-    day6: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
-    },
-
-    day7: {
-      exercise: [
-        {
-          bodyPart: String,
-          equipment: String,
-          gifUrl: String,
-          id: String,
-          name: String,
-          target: String,
-        },
-      ],
-    },
+    
     
 
     description: String,

@@ -95,13 +95,7 @@ router.get("/workout/:id", async (req, res) => {
 router.post("/workout/:id", async (req, res) => {
   const { exercise } = req.body;
 
-  // get exercise by name from api
-
-  // const exerciseFromApi = await axios.get("someurlwithstringinterpolation");^
-
   const exerciseFromApi = await getById(exercise);
-  console.log("workout to be updated", req.params.id)
-  console.log(exerciseFromApi);
 
   await Workout.findByIdAndUpdate(req.params.id, {
     $push: { exercise: exerciseFromApi },
@@ -109,6 +103,7 @@ router.post("/workout/:id", async (req, res) => {
 
   res.redirect(`/workout/${req.params.id}`);
 });
+
 
 router.get("/workout-list", async (req, res, next) => {
   const workouts = await Workout.find();

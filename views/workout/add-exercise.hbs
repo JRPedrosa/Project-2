@@ -1,4 +1,7 @@
 <h2>add exercise</h2>
+{{!-- {{#each workout.days}} --}}
+
+{{!-- {{workout.days}} --}}
 
 <form action="/workout/{{id}}" method="POST">
 
@@ -6,7 +9,7 @@
     <label>Select exercise</label>
     <select name="exercise">
         <option value="0">Select</option>
-        {{#each exec}}
+        {{#each exec }}
             <option value={{id}}>{{name}}</option>
         {{/each}}
     </select>
@@ -22,11 +25,15 @@
 <br>
 
 {{workout.title}}
+
 <br>
-{{#each workout.exercise}}
+
+{{#each workout.days.exercise}}
 
 {{name}}
 
 <br>
 
 {{/each}}
+
+{{!-- {{/each}}  --}}
