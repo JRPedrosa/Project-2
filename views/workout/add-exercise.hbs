@@ -1,10 +1,38 @@
-<h2>add exercise</h2>
-{{!-- {{#each workout.days}} --}}
 
-{{!-- {{workout.days}} --}}
+
+<h2>Add exercises to 
+{{workout.title}}</h2>
+
+
+<form action="/workout/{{id}}/filter" method="POST">
+    <select name="target">
+        <option value="0">Select</option>
+        <option value="abductors" >abductors</option>
+        <option value="abs" >abs</option>
+        <option value="adductors" >adductors</option>
+        <option value="biceps" >biceps</option>
+        <option value="calves" >calves</option>
+        <option value="cardiovascular system" >cardiovascular system</option>
+        <option value="delts" >delts</option>
+        <option value="forearms" >forearms</option>
+        <option value="glutes" >glutes</option>
+        <option value="hamstrings" >hamstrings</option>
+        <option value="lats" >lats</option>
+        <option value="levator scapulae" >levator scapulae</option>
+        <option value="pectorals" >pectorals</option>
+        <option value="quads" >quads</option>
+        <option value="serratus anterior" >serratus anterior</option>
+        <option value="spine" >spine</option></var>
+        <option value="traps" >traps</option>
+        <option value="triceps" >triceps</option>
+        <option value="upper back" >upper back</option>
+    </select>
+
+    <button type="submit">Select</button>
+</form>
+
 
 <form action="/workout/{{id}}" method="POST">
-
 
     <label>Select exercise</label>
     <select name="exercise">
@@ -16,24 +44,122 @@
 
 
 
+    <label>Day</label>
+    <select name="day">
+        <option value="0">Select</option>
+        <option value="day1" >Day 1</option>
+        <option value="day2" >Day 2</option>
+        <option value="day3" >Day 3</option>
+        <option value="day4" >Day 4</option>
+        <option value="day5" >Day 5</option>
+        <option value="day6" >Day 6</option>
+        <option value="day7" >Day 7</option>
+    </select>
 
+    <label>Sets</label>     
+    <input type="number" name="sets" />
+    
+
+
+    <label>Reps</label>
+    <input type="number" name="reps" />
+    
 
     <button type="submit">Create</button>
 
 </form>
 
-<br>
-
-{{workout.title}}
 
 <br>
-
-{{#each workout.days.exercise}}
-
-{{name}}
-
+<br>
 <br>
 
+<p>Day 1</p>
+{{#each workout.exercises}}
+    {{#eq day "day1"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+
+    {{/eq}}
 {{/each}}
 
-{{!-- {{/each}}  --}}
+
+<p>Day 2</p>
+{{#each workout.exercises}}
+    {{#eq day "day2"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+
+<p>Day 3</p>
+{{#each workout.exercises}}
+    {{#eq day "day3"}}
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+<p>Day 4</p>
+{{#each workout.exercises}}
+    {{#eq day "day4"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+<p>Day 5</p>
+{{#each workout.exercises}}
+    {{#eq day "day5"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+<p>Day 6</p>
+{{#each workout.exercises}}
+    {{#eq day "day6"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+<p>Day 7</p>
+{{#each workout.exercises}}
+    {{#eq day "day7"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+

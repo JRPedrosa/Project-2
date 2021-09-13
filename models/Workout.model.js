@@ -6,104 +6,20 @@ const workoutSchema = mongoose.Schema(
         type: String,
         required: true,
     },
-    days: {
-
-      day1: {
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-  
-      day2: {
-        
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-  
-      day3: {
-        
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-  
-      day4: {
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-  
-      day5: {
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-  
-      day6: {
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-  
-      day7: {
-        exercise: [
-          {
-            bodyPart: String,
-            equipment: String,
-            gifUrl: String,
-            id: String,
-            name: String,
-            target: String,
-          },
-        ],
-      },
-
-    },
     
-    
+    exercises: [
+      {
+        bodyPart: String,
+        equipment: String,
+        gifUrl: String,
+        id: String,
+        name: String,
+        target: String, 
+        day: String,
+        sets: Number,
+        reps: Number
+      }
+    ],  
 
     description: String,
 
@@ -124,6 +40,21 @@ const Workout = mongoose.model("Workout", workoutSchema);
 module.exports = Workout;
 
 
+
+// day1: {
+//   exercises: [
+//     {
+//       bodyPart: String,
+//       equipment: String,
+//       gifUrl: String,
+//       id: String,
+//       name: String,
+//       target: String,
+//       days: {
+//         type: String,
+//         enum: ['mon', 'tues']
+
+//       }
 
 
 
@@ -174,3 +105,5 @@ module.exports = Workout;
 // })
 
 // module.exports = WorkoutSchema
+
+
