@@ -1,11 +1,31 @@
-
-
 <h2>Add exercises to 
 {{workout.title}}</h2>
 
 
 <form action="/workout/{{id}}/filter" method="POST">
     <select name="target">
+        {{#if target}}
+        <option value="0">{{target}}</option>
+        <option value="abductors" >abductors</option>
+        <option value="abs" >abs</option>
+        <option value="adductors" >adductors</option>
+        <option value="biceps" >biceps</option>
+        <option value="calves" >calves</option>
+        <option value="cardiovascular system" >cardiovascular system</option>
+        <option value="delts" >delts</option>
+        <option value="forearms" >forearms</option>
+        <option value="glutes" >glutes</option>
+        <option value="hamstrings" >hamstrings</option>
+        <option value="lats" >lats</option>
+        <option value="levator scapulae" >levator scapulae</option>
+        <option value="pectorals" >pectorals</option>
+        <option value="quads" >quads</option>
+        <option value="serratus anterior" >serratus anterior</option>
+        <option value="spine" >spine</option></var>
+        <option value="traps" >traps</option>
+        <option value="triceps" >triceps</option>
+        <option value="upper back" >upper back</option>
+        {{else}}
         <option value="0">Select</option>
         <option value="abductors" >abductors</option>
         <option value="abs" >abs</option>
@@ -26,6 +46,7 @@
         <option value="traps" >traps</option>
         <option value="triceps" >triceps</option>
         <option value="upper back" >upper back</option>
+        {{/if}}
     </select>
 
     <button type="submit">Select</button>

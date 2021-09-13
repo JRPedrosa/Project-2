@@ -58,7 +58,7 @@ function getByMuscle(muscle) {
 router.get("/listexercise", async (req, res, next) => {  //General exercise list
   const allExercises = await getAllExercises();
 
-  res.render("workout/list", { allExercises });
+  res.render("workout/exercise-list", { allExercises });
 });
 
 
@@ -92,7 +92,7 @@ router.post("/workout/:id/filter", async (req, res) => {  //Filter by muscles
   const target = req.body.target;
   const selectedMuscle = await getByMuscle(target);
 
-  res.render("workout/add-exercise", { allExercises: selectedMuscle, id: req.params.id, workout });
+  res.render("workout/add-exercise", { allExercises: selectedMuscle, id: req.params.id, workout, target });
 });
 
 
@@ -135,12 +135,15 @@ router.get("/workout-detail/:id", async (req, res) => {  //Specific workout deta
 
 
 router.get("/listexercise/:id", async (req, res) => {   //Specific exercise details
-    const exercise  = await getById(req.params.id);
+    const exercise = await getById(req.params.id);
     res.render("workout/exercise-detail", exercise);
   });
 
 
-
+router.post("/workout-delete/:id", async (req, res) => {   //Delete workouts from the workout list.
+  await Workout.findByIdAndDelete(req.params.id);
+  res.redirect("/workout-list");
+});
 
 
 

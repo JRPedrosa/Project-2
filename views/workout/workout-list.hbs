@@ -14,6 +14,10 @@ Main Goal:  {{workoutGoals}}
 
 <a href="workout/{{id}}">Add an exercise</a>
 
+<form action="/workout-delete/{{id}}" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
 <hr />
 {{/each}}
 
