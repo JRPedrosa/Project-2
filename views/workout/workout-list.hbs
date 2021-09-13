@@ -1,14 +1,14 @@
-<h2>workout list</h2>
+<h2>Workout list</h2>
 
 {{#each workouts}}
 
 <a href="/workout-detail/{{id}}">{{title}}</a>
 <br>
 
-description: {{description}}
+Description: {{description}}
 <br>
 <br>
-{{workoutGoals}}
+Main Goal:  {{workoutGoals}}
 
 <br>
 
@@ -17,4 +17,3 @@ description: {{description}}
 <hr />
 {{/each}}
 
-{{!-- <img src={{fin.gifUrl}}> --}}

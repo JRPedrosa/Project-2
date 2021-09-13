@@ -2,31 +2,31 @@ const router = require("express").Router();
 var axios = require("axios").default;
 const Workout = require("../models/Workout.model");
 
-var getAllExercise = {
-  method: "GET",
-  url: `https://exercisedb.p.rapidapi.com/exercises`,
-  headers: {
-    "x-rapidapi-host": "exercisedb.p.rapidapi.com", // process.env.API_HOST
-    "x-rapidapi-key": "5c69d9ad7fmsh37f71ce5cfc1d4dp1c82bfjsn3abce3514042", //  process.env.API_KEY
-  },
-};
 
-// var getById = {
-//   method: 'GET',
-//   url: `https://exercisedb.p.rapidapi.com/exercises/exercise/${ID}`,
-//   headers: {
-//     'x-rapidapi-host': 'exercisedb.p.rapidapi.com', // process.env.API_HOST
-//     'x-rapidapi-key': '5c69d9ad7fmsh37f71ce5cfc1d4dp1c82bfjsn3abce3514042' //  process.env.API_KEY
-//   }
-// };
+// Functions to grab from the API //
+
+function getAllExercises() {
+  let getAllExercise = {
+    method: "GET",
+    url: `https://exercisedb.p.rapidapi.com/exercises`,
+    headers: {
+      "x-rapidapi-host": process.env.API_HOST,
+      "x-rapidapi-key": process.env.API_KEY
+    },
+  };
+  return axios.request(getAllExercise).then(function (response) {
+    const exec = response.data;
+    return exec;
+  });
+}
 
 function getById(ID) {
-  var getById = {
+  let getById = {
     method: "GET",
     url: `https://exercisedb.p.rapidapi.com/exercises/exercise/${ID}`,
     headers: {
-      "x-rapidapi-host": "exercisedb.p.rapidapi.com", // process.env.API_HOST
-      "x-rapidapi-key": "5c69d9ad7fmsh37f71ce5cfc1d4dp1c82bfjsn3abce3514042", //  process.env.API_KEY
+      "x-rapidapi-host": process.env.API_HOST,
+      "x-rapidapi-key": process.env.API_KEY
     },
   };
   return axios.request(getById).then(function (response) {
@@ -36,12 +36,12 @@ function getById(ID) {
 }
 
 function getByMuscle(muscle) {
-  var getByMuscle = {
+  let getByMuscle = {
     method: "GET",
     url: `https://exercisedb.p.rapidapi.com/exercises/target/${muscle}`,
     headers: {
-      "x-rapidapi-host": "exercisedb.p.rapidapi.com", // process.env.API_HOST
-      "x-rapidapi-key": "5c69d9ad7fmsh37f71ce5cfc1d4dp1c82bfjsn3abce3514042", //  process.env.API_KEY
+      "x-rapidapi-host": process.env.API_HOST,
+      "x-rapidapi-key": process.env.API_KEY
     },
   };
   console.log("test", getByMuscle);
@@ -51,76 +51,55 @@ function getByMuscle(muscle) {
   });
 }
 
-// function workoutID(workout) {
-//   for (object of workout) {
-//     object.exercise1 = getById(object.exercise1)
-//   }
-//   console.log(object.exercise1);
-// }
 
-router.get("/listexercise", (req, res, next) => {
-  axios
-    .request(getAllExercise)
-    .then(function (response) {
-      // console.log(response.data);
-      const exec = response.data;
-      res.render("workout/list", { exec });
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
+// ROUTES BEGIN HERE  // 
 
-  // res.render("list", { getAllExercise });
+
+router.get("/listexercise", async (req, res, next) => {  //General exercise list
+  const allExercises = await getAllExercises();
+
+  res.render("workout/list", { allExercises });
 });
 
-router.get("/create-workout", (req, res, next) => {
-  axios
-    .request(getAllExercise)
-    .then(function (response) {
-      const exec = response.data;
-      res.render("workout/workout-create", { exec });
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
+
+
+router.get("/create-workout", async (req, res, next) => { //First step in creating workout
+  res.render("workout/workout-create");
 });
 
-router.post("/create-workout", async (req, res) => {
+
+
+router.post("/create-workout", async (req, res) => {  //Workout created, redirects to the list of workouts
   const { title, description, workoutGoals } = req.body;
   await Workout.create({ title, description, workoutGoals });
 
   res.redirect("workout-list");
 });
 
-router.get("/workout/:id", async (req, res) => {
+
+
+router.get("/workout/:id", async (req, res) => {     //General page for adding exercises
   const workout = await Workout.findById(req.params.id);
+  const allExercises = await getAllExercises();
 
-  axios
-    .request(getAllExercise)
-    .then(function (response) {
-      const exec = response.data;
-
-      res.render("workout/add-exercise", { exec, id: req.params.id, workout });
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
+  res.render("workout/add-exercise", { allExercises, id: req.params.id, workout });
 });
 
-router.post("/workout/:id/filter", async (req, res) => {
-  const workout = await Workout.findById(req.params.id);
 
+
+router.post("/workout/:id/filter", async (req, res) => {  //Filter by muscles
+  const workout = await Workout.findById(req.params.id);
   const target = req.body.target;
-//   console.log("target", target);
   const selectedMuscle = await getByMuscle(target);
 
-  res.render("workout/add-exercise", { exec: selectedMuscle, id: req.params.id, workout });
+  res.render("workout/add-exercise", { allExercises: selectedMuscle, id: req.params.id, workout });
 });
 
-router.post("/workout/:id", async (req, res) => {
-  const { exercise } = req.body;
 
-  const exerciseFromApi = await getById(exercise);
+
+router.post("/workout/:id", async (req, res) => { //The act of adding an exercise. Redirects to the general page for adding exercises.
+  const exerciseID  = req.body.exercise;
+  const exerciseFromApi = await getById(exerciseID);
 
   const day = req.body.day;
   const sets = req.body.sets;
@@ -137,47 +116,33 @@ router.post("/workout/:id", async (req, res) => {
   res.redirect(`/workout/${req.params.id}`);
 });
 
-router.get("/workout-list", async (req, res, next) => {
+
+
+router.get("/workout-list", async (req, res, next) => {  //List of workouts
   const workouts = await Workout.find();
 
   res.render("workout/workout-list", { workouts });
 });
 
-router.get("/workout-detail/:id", async (req, res) => {
+
+
+router.get("/workout-detail/:id", async (req, res) => {  //Specific workout details
   const workout = await Workout.findById(req.params.id);
   res.render("workout/workout-detail", workout);
 });
 
-router.get("/listexercise/:id", async (req, res) => {
-    const exec  = await getById(req.params.id);
-    res.render("workout/exercise-detail", exec);
+
+
+
+router.get("/listexercise/:id", async (req, res) => {   //Specific exercise details
+    const exercise  = await getById(req.params.id);
+    res.render("workout/exercise-detail", exercise);
   });
 
 
 
-// for (obj of workouts) {
-//   var fin = await getById(obj.exercise1)
-//   console.log(fin);
-// }
 
-// router.get("/equipment", (req, res, next) => {
-//   axios.request(getALlExercise).then(function (response) {
-//     console.log(response.data);
-//   }).catch(function (error) {
-//     console.error(error);
-//   });
 
-//   res.render("list");
-// });
 
 module.exports = router;
 
-// const {exercise} = req.body
-
-// // get exercise by name from api
-
-// const exerciseFromApi = await axios.get("someurlwithstringinterpolation");
-
-// await Workout.findByIdAndUpdate('idoftheworkout', {
-//   $push: {exercise: exerciseFromApi }
-// });

@@ -1,10 +1,11 @@
-<h1>Excercise Directory</h1>
-,<ul>
-{{#each exec}}
- <li>
-<a href="/listexercise/{{id}}">{{name}}</a>
-<br />
-</li>
-{{!-- <img src="{{gifUrl}}"> --}}
+<h1>Exercise Directory</h1>
+
+<ul>
+{{#each allExercises}}
+
+    <li>
+        <a href="/listexercise/{{id}}">{{name}}</a>
+    </li>
+
 {{/each}}
 </ul>
