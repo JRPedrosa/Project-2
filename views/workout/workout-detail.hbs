@@ -3,15 +3,93 @@
 {{title}}
 <br>
 
-{{description}}
+{{!-- {{description}}
 
-{{workoutGoals}}
+{{workoutGoals}} --}}
 
-{{#each exercise}}
-{{bodyPart}}
+<p>Day 1</p>
+{{#each exercises}}
+    {{#eq day "day1"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+
+    {{/eq}}
+{{/each}}
+
+
+<p>Day 2</p>
+{{#each exercises}}
+    {{#eq day "day2"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
 
 
 
-<img src={{gifUrl}}>
 
+<p>Day 3</p>
+{{#each exercises}}
+    {{#eq day "day3"}}
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+<p>Day 4</p>
+{{#each exercises}}
+    {{#eq day "day4"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+<p>Day 5</p>
+{{#each exercises}}
+    {{#eq day "day5"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+<p>Day 6</p>
+{{#each exercises}}
+    {{#eq day "day6"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
+{{/each}}
+
+
+
+<p>Day 7</p>
+{{#each exercises}}
+    {{#eq day "day7"}}
+        
+        {{name}}
+        sets: {{sets}}
+        reps: {{reps}}
+        
+    {{/eq}}
 {{/each}}

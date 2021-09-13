@@ -148,6 +148,13 @@ router.get("/workout-detail/:id", async (req, res) => {
   res.render("workout/workout-detail", workout);
 });
 
+router.get("/listexercise/:id", async (req, res) => {
+    const exec  = await getById(req.params.id);
+    res.render("workout/exercise-detail", exec);
+  });
+
+
+
 // for (obj of workouts) {
 //   var fin = await getById(obj.exercise1)
 //   console.log(fin);
