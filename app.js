@@ -47,7 +47,17 @@ function getCurrentLoggedUser(req, res, next) {
     next();
 }
 
+function getCurrentUserID(req, res, next) {
+    if (req.session && req.session.currentUser) {
+        app.locals.loggedInUserID = req.session.currentUser._id
+    } else {
+        app.locals.loggedInUserID = "";
+    }
+    next();
+}
+
 app.use(getCurrentLoggedUser);
+app.use(getCurrentUserID);
 
 
 
