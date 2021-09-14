@@ -28,9 +28,16 @@ const userSchema = new Schema({
   gender: { type: String, enum: ["female", "male", "prefer not to say"] },
   age: {
     type: Number,
+    minimum: 18
   },
-  height: { type: Number },
-  weight: { type: Number },
+  height: {
+    type: Number,
+    minimum: 0
+  },
+  weight: {
+    type: Number,
+    minimum: 0
+  },
   disability: {
     type: String,
     default: "no",
