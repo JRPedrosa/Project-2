@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
+const fileUpload = require('../config/cloudinary');
 
 
 router.get("/", (req, res, next) => {
@@ -15,8 +16,9 @@ router.get("/signup", (req, res) => {
 
 
 
-router.post("/signup", async (req, res) => {
-    const {username, password, bio, email, photo } = req.body;
+router.post("/signup", fileUpload.single("photo"), async (req, res) => {
+    const fileOnCloudinary = req.file.path;
+    const {username, password, bio, email,} = req.body;
     if (username === "" || password === "") {
         res.render("auth/signup", { errorMessage: "Fill username and password"});
         return;
@@ -38,7 +40,7 @@ router.post("/signup", async (req, res) => {
         password: hashedPassword,
         bio,
         email,
-        photo,
+        photo: fileOnCloudinary
     });
     res.redirect("/");
 });
