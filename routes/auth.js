@@ -48,7 +48,7 @@ router.get("/profile/:id", (req, res) => {
     res.render("auth/profile", user);
 })
 
-router.post("/edit-profile", async (req, res) => {
+router.post("/edit-profile/:id", async (req, res) => {
     const { gender, age, height, weight, disability, activityLevel, expectedDays, workoutGoal } = req.body;
     await User.findByIdAndUpdate(req.params.id, {
         gender, 
@@ -60,7 +60,7 @@ router.post("/edit-profile", async (req, res) => {
         expectedDays, 
         workoutGoal
     })
-    res.redirect("profile/")
+    res.redirect(`/profile/${req.params.id}`)
 })
 
 // router.get("/login", (req, res) => {         OLD LOGIN ROUTE -> to delete eventually
