@@ -51,7 +51,7 @@ router.get("/profile/:id", (req, res) => {
 })
 
 router.post("/edit-profile/:id", async (req, res) => {
-    const { gender, age, height, weight, disability, activityLevel, expectedDays, workoutGoal } = req.body;
+    const { gender, age, height, weight, disability, activityLevel, expectedDays, workoutGoals } = req.body;
     await User.findByIdAndUpdate(req.params.id, {
         gender, 
         age, 
@@ -60,7 +60,7 @@ router.post("/edit-profile/:id", async (req, res) => {
         disability, 
         activityLevel, 
         expectedDays, 
-        workoutGoal
+        workoutGoals
     })
     res.redirect(`/profile/${req.params.id}`)
 })
