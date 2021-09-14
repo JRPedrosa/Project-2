@@ -187,7 +187,9 @@ router.post("/workout/:id/like", async (req, res) => {
 });
 
 router.post("/workout/:id/comment", async (req, res) => {
-  const { name, comment } = req.body;
+  const comment  = req.body.comment;
+  const name = req.session.currentUser.username;
+
   await Workout.findByIdAndUpdate(req.params.id, {
     $push: { reviews: { name, comment } },
   });
