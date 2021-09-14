@@ -1,3 +1,4 @@
+
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
@@ -65,7 +66,7 @@ router.post("/login", async (req, res) => {
         req.session.currentUser = user;
         res.redirect("/");
     } else {
-        res.render("auth/login", { errorMessage: "Invalid login"});
+        res.render("auth/", { errorMessage: "Invalid login"});
     }
     
 });

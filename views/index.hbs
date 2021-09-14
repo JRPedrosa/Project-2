@@ -1,3 +1,39 @@
+ {{#if loggedInUser}}
+ {{else}}
+
+
 <h1>{{title}} 💪</h1>
-<p>Welcome Ironhacker!</p>
+
+
+<h2>Login</h2>
+
+<form action="/login" method="POST">
+
+
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Enter Username" required/>
+
+    <br>
+    <br>
+
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password" required/>
+
+    <button type="submit">Login</button>
+
+</form>
+
+<br> 
+ 
+ Don't have an account? <a href="/signup">Sign Up</a>
+
+ {{/if}}
+
+
+
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+{{/if}}
+
+
 
