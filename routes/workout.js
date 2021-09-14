@@ -1,6 +1,8 @@
 const router = require("express").Router();
 var axios = require("axios").default;
 const Workout = require("../models/Workout.model");
+const User = require('../models/User.model');
+const Like = require('../models/Like.model');
 
 
 // Functions to grab from the API //
@@ -117,6 +119,8 @@ router.post("/workout/:id", async (req, res) => { //The act of adding an exercis
 
 
 
+
+
 router.get("/workout-list", async (req, res, next) => {  //List of workouts
   const workouts = await Workout.find().populate("user");
 
@@ -143,6 +147,44 @@ router.post("/workout-delete/:id", async (req, res) => {   //Delete workouts fro
   await Workout.findByIdAndDelete(req.params.id);
   res.redirect("/workout-list");
 });
+
+router.post("/workout/:id/like", async (req, res) => {
+  try {
+    const user = await User.findById(req.session.currentUser.id);
+    const workout = await Workout.findById(req.params.id);
+
+    const existingLike = await Like.findOne({
+      user: user,
+      workout: workout,
+    });
+
+    if (!existingLike) {
+      const like = await Like.create({
+        user,
+        workout
+      });
+      await Workout.findByIdAndUpdate(req.params.id, {
+        $push: {
+          like: like
+        }
+      })
+    } else {
+      //Delete like
+    }
+   res.redirect("/workout-list");
+   } catch (e) {
+  res.render('error');
+  console.log(`An error occurred ${e}`);
+  } 
+});
+
+router.post("/workout/:id/comment", async (req, res) => {
+  const { name, comment } = req.body;
+  await Workout.findByIdAndUpdate(req.params.id, {
+    $push: { reviews: { name, comment } },
+  });
+  res.redirect("/workout-list");
+}); 
 
 
 

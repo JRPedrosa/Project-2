@@ -32,9 +32,23 @@ const workoutSchema = mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    
+    reviews: [
+      {
+        name: String, 
+        comment: String,
+    },
+    ],
+
+    like: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Like' 
 
    
-  },
+  }]
+  
+},
+
   {
     timestamps: true,
   }
@@ -44,71 +58,5 @@ const Workout = mongoose.model("Workout", workoutSchema);
 
 module.exports = Workout;
 
-
-
-// day1: {
-//   exercises: [
-//     {
-//       bodyPart: String,
-//       equipment: String,
-//       gifUrl: String,
-//       id: String,
-//       name: String,
-//       target: String,
-//       days: {
-//         type: String,
-//         enum: ['mon', 'tues']
-
-//       }
-
-
-
-// const mongoose = require("mongoose")
-// const UserSchema = require("./UserSchema")
-
-// const WorkoutSchema = new mongoose.Schema({
-//   user: { type: mongoose.Types.ObjectId, ref: "Users" },
-//   //user: String,
-//   workout: {
-    
-//     day1: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//     day2: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//     day3: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//     day4: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//     day5: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//     day6: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//     day7: {
-//       button: { type: String },
-//       exercises: [[]],
-//       panels: [{ type: Number }],
-//     },
-//   },
-// })
-
-// module.exports = WorkoutSchema
 
 
