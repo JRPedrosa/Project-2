@@ -28,6 +28,11 @@ const workoutSchema = mongoose.Schema(
         enum: ["Lose fat", "Get fit", "Gain muscle"],
       },
 
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+
    
   },
   {
