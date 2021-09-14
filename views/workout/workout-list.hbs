@@ -5,14 +5,21 @@
 <a href="/workout-detail/{{id}}">{{title}}</a>
 <br>
 
+<div>
+        <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
+        <p> by <a href="/profile/{{user.id}}">{{user.username}}</a>
+        </p>
+ <div>
+
+<br>
+
 Description: {{description}}
 <br>
 <br>
 Main Goal:  {{workoutGoals}}
 <br>
-by: {{user.username}}  <img src={{user.photo}}>
 
-<br>
+
 
 <a href="workout/{{id}}">Add an exercise</a>
 
