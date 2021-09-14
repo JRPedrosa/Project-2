@@ -18,12 +18,11 @@ const storage = new CloudinaryStorage({
     folder: 'profiles',
     allowed_formats: ['jpg', 'png']
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
+  filename: function (req, file, cb) { cb(null, file.originalname);
   }
 });
-const uploadCloud = multer({
+
+
+module.exports = multer({
   storage
 });
-
-module.exports = uploadCloud;
