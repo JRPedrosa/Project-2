@@ -1,0 +1,84 @@
+<h2>Edit your profile</h2>
+
+<form action="/edit-profile/{{loggedInUserID}}" method="POST">
+
+  
+  <div >
+    <label>Gender</label>
+     <select name="gender">
+        <option value="0">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Prefer not to say</option>
+    </select>
+   </div>
+
+  <div >
+    <label>Age</label>
+    <input type="number" name= "age" min=18 >
+  </div>
+
+  <div>
+    <label>Height (in cm)</label>
+    <input type="number" name= "height" min=130 >
+  </div>
+
+  <div>
+    <label>Weight (in Kg)</label>
+    <input type="number" name="weight" min=40 >
+  </div>
+
+<div>
+  <label>Disability</label>
+    <select name="disability">
+        <option value="0">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+</div>
+
+ <div >
+    <label>Activity Level</label>
+     <select name="activityLevel">
+        <option value="0">Select</option>
+        <option>Lazy Bastard</option>
+        <option>Active</option>
+        <option>Athlete</option>
+        <option>Beast</option>
+    </select>
+   </div>
+
+
+
+<div>
+  <label>Workout days/week</label>
+   <select name="expectedDays">
+        <option value="0">Select</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+    </select>
+</div>
+
+<div>
+  <label>Workout Goals</label>
+   <select name="workoutGoals">
+        <option value="0">Select</option>
+        <option>Lose fat</option>
+        <option>Get fit</option>
+        <option>Gain muscle</option>
+    </select>
+  
+</div>
+
+  
+
+<button type="submit" >Done</button>
+
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+{{/if}}

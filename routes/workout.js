@@ -1,6 +1,15 @@
 const router = require("express").Router();
 var axios = require("axios").default;
 const Workout = require("../models/Workout.model");
+const User = require("../models/User.model");
+
+function requireLogin(req, res, next) {
+  if (req.session.currentUser) {
+      next();
+  } else {
+      res.redirect("/");
+  }
+}
 
 
 // Functions to grab from the API //
@@ -55,7 +64,7 @@ function getByMuscle(muscle) {
 // ROUTES BEGIN HERE  // 
 
 
-router.get("/listexercise", async (req, res, next) => {  //General exercise list
+router.get("/listexercise", requireLogin, async (req, res, next) => {  //General exercise list
   const allExercises = await getAllExercises();
 
   res.render("workout/exercise-list", { allExercises });
@@ -63,7 +72,7 @@ router.get("/listexercise", async (req, res, next) => {  //General exercise list
 
 
 
-router.get("/create-workout", async (req, res, next) => { //First step in creating workout
+router.get("/create-workout", requireLogin, async (req, res, next) => { //First step in creating workout
   res.render("workout/workout-create");
 });
 
@@ -71,13 +80,14 @@ router.get("/create-workout", async (req, res, next) => { //First step in creati
 
 router.post("/create-workout", async (req, res) => {  //Workout created, redirects to the list of workouts
   const { title, description, workoutGoals } = req.body;
-  await Workout.create({ title, description, workoutGoals, user: req.session.currentUser });
-  res.redirect("workout-list");
+  const workout = await Workout.create({ title, description, workoutGoals, user: req.session.currentUser });
+  const id = workout.id;
+  res.redirect(`workout/${id}`);
 });
 
 
 
-router.get("/workout/:id", async (req, res) => {     //General page for adding exercises
+router.get("/workout/:id", requireLogin, async (req, res) => {     //General page for adding exercises
   const workout = await Workout.findById(req.params.id);
   const allExercises = await getAllExercises();
 
@@ -117,7 +127,7 @@ router.post("/workout/:id", async (req, res) => { //The act of adding an exercis
 
 
 
-router.get("/workout-list", async (req, res, next) => {  //List of workouts
+router.get("/workout-list", requireLogin, async (req, res, next) => {  //List of workouts
   const workouts = await Workout.find().populate("user");
 
   res.render("workout/workout-list", { workouts });
@@ -125,7 +135,7 @@ router.get("/workout-list", async (req, res, next) => {  //List of workouts
 
 
 
-router.get("/workout-detail/:id", async (req, res) => {  //Specific workout details
+router.get("/workout-detail/:id", requireLogin, async (req, res) => {  //Specific workout details
   const workout = await Workout.findById(req.params.id);
   res.render("workout/workout-detail", workout);
 });
@@ -133,7 +143,7 @@ router.get("/workout-detail/:id", async (req, res) => {  //Specific workout deta
 
 
 
-router.get("/listexercise/:id", async (req, res) => {   //Specific exercise details
+router.get("/listexercise/:id", requireLogin, async (req, res) => {   //Specific exercise details
     const exercise = await getById(req.params.id);
     res.render("workout/exercise-detail", exercise);
   });

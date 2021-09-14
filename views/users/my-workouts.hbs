@@ -1,4 +1,4 @@
-<h2>Feed</h2>
+<h2>My PRIVATE Workouts</h2>
 
 {{#each workouts}}
 
@@ -19,6 +19,21 @@ Description: {{description}}
 Main Goal:  {{workoutGoals}}
 <br>
 
+<a href="/workout/{{id}}">Add an exercise</a>
+
+<form action="/workout-delete/{{id}}" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
+
+
 <hr />
 {{/each}}
+
+
+
+
+
+
+
 

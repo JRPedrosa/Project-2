@@ -60,7 +60,6 @@ app.use(getCurrentLoggedUser);
 app.use(getCurrentUserID);
 
 
-
 // default value for title local
 const projectName = "FitHub";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
@@ -74,6 +73,8 @@ const workout = require("./routes/workout");
 app.use("/", workout)
 const auth = require("./routes/auth");
 app.use("/", auth);
+const user = require("./routes/user");
+app.use("/", user);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

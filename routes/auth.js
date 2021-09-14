@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
@@ -52,32 +51,6 @@ router.post("/signup", fileUpload.single("photo"), async (req, res) => {
 
     res.redirect("/");
 });
-
-router.get("/profile/:id", (req, res) => {
-    const user = req.session.currentUser;
-    res.render("users/profile", user);
-})
-
-router.post("/edit-profile/:id", async (req, res) => {
-    const { gender, age, height, weight, disability, activityLevel, expectedDays, workoutGoals } = req.body;
-    await User.findByIdAndUpdate(req.params.id, {
-        gender, 
-        age, 
-        height, 
-        weight, 
-        disability, 
-        activityLevel, 
-        expectedDays, 
-        workoutGoals
-    })
-    res.redirect(`/profile/${req.params.id}`)
-})
-
-// router.get("/login", (req, res) => {         OLD LOGIN ROUTE -> to delete eventually
-//     res.render("auth/login");
-// });
-
-
 
 
 router.post("/login", async (req, res) => {
