@@ -71,9 +71,7 @@ router.get("/create-workout", async (req, res, next) => { //First step in creati
 
 router.post("/create-workout", async (req, res) => {  //Workout created, redirects to the list of workouts
   const { title, description, workoutGoals } = req.body;
-  console.log(req.session.currentUser);
   await Workout.create({ title, description, workoutGoals, user: req.session.currentUser });
-
   res.redirect("workout-list");
 });
 
@@ -120,7 +118,7 @@ router.post("/workout/:id", async (req, res) => { //The act of adding an exercis
 
 
 router.get("/workout-list", async (req, res, next) => {  //List of workouts
-  const workouts = await Workout.find();
+  const workouts = await Workout.find().populate("user");
 
   res.render("workout/workout-list", { workouts });
 });
