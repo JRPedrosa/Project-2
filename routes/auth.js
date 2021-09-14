@@ -17,7 +17,11 @@ router.get("/signup", (req, res) => {
 
 
 router.post("/signup", fileUpload.single("photo"), async (req, res) => {
-    const fileOnCloudinary = req.file.path;
+    let fileUrlOnCloudinary = "";
+    if (req.file) {
+        fileUrlOnCloudinary = req.file.path; //the path on cloudinary
+    }
+
     const {username, password, bio, email,} = req.body;
     if (username === "" || password === "") {
         res.render("auth/signup", { errorMessage: "Fill username and password"});
@@ -35,13 +39,17 @@ router.post("/signup", fileUpload.single("photo"), async (req, res) => {
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);
     const hashedPassword = bcrypt.hashSync(password, salt);
+
+    console.log("cloud", fileUrlOnCloudinary);
+
     await User.create({
         username,
         password: hashedPassword,
         bio,
         email,
-        photo: fileOnCloudinary
+        photo: fileUrlOnCloudinary
     });
+
     res.redirect("/");
 });
 
