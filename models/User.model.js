@@ -26,6 +26,7 @@ const userSchema = new Schema({
  
   },
   gender: { type: String, enum: ["female", "male", "prefer not to say"] },
+  
   age: {
     type: Number,
     minimum: 18
@@ -43,12 +44,16 @@ const userSchema = new Schema({
     default: "no",
     enum: ["yes", "no",],
   },
+
   activityLevel: { type: String, enum: ["lazy bastard", "active", "athlete", "beast"] },
+
   expectedDays: { type: Number, enum: [1, 2, 3, 4, 5, 6, 7] },
+
   workoutGoals: {
     type: String,
     enum: ["Lose fat", "Get fit", "Gain muscle"],
   },
+
 });
 
 const User = model("User", userSchema);
