@@ -6,7 +6,7 @@ const fileUpload = require('../config/cloudinary');
 
 
 router.get("/", (req, res, next) => {
-    res.render("login");
+    res.render("auth/login");
   });
 
 
@@ -55,7 +55,7 @@ router.post("/signup", fileUpload.single("photo"), async (req, res) => {
 
 router.get("/profile/:id", (req, res) => {
     const user = req.session.currentUser;
-    res.render("auth/profile", user);
+    res.render("users/profile", user);
 })
 
 router.post("/edit-profile/:id", async (req, res) => {

@@ -17,7 +17,7 @@ cloudinary.config({
 const storage =  new CloudinaryStorage({
     cloudinary,
     params: {
-        folder: "books",
+        folder: "fithub_profiles",
         allowed_formats: ["png", "jpg"],
     },
     filename: function(req, file, cb) {
