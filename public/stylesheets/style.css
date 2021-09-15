@@ -1,6 +1,80 @@
+
+.card-template {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 0.1rem #66A182 solid;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  background-color: #212529;
+  color: #F7F7F7;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; }
+
+
+
+
+
+.fithub-box {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-center {
+  width: 30%;
+  height: 55vh;
+  padding: 20px 0;
+  background-color: #212529;
+  color: #F7F7F7;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.auth-center form {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.auth-center input {
+  width: 120%;
+  padding: 0 30px;
+  height: 50px;
+}
+
+.auth-center > a {
+  background-color: #F7F7F7;
+  width: 50%;
+  padding: 10px 0;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+}
+
+.auth-center form button {
+  color: #F7F7F7;
+  background-color: #21252900;
+}
+
+
+
+
+
+
+
+
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans"; font-size: 14px; 
+
 }
 
 a {

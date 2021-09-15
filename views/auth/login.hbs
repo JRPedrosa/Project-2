@@ -1,3 +1,6 @@
+<div class="fithub-box">
+<div class="auth-center">
+
  {{#if loggedInUser}}
  {{else}}
 
@@ -5,12 +8,11 @@
 <h1>{{title}} 💪</h1>
 
 
-<h2>Login</h2>
+
 
 <form action="/login" method="POST">
 
-
-    <label>Username</label>
+ <label>Username</label>
     <input type="text" name="username" placeholder="Enter Username" required/>
 
     <br>
@@ -24,16 +26,23 @@
 </form>
 
 <br> 
+
  
  Don't have an account? <a href="/signup">Sign Up</a>
 
  {{/if}}
+
+ </div>
+</div>
 
 
 
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>
 {{/if}}
+
+
+
 
 
 

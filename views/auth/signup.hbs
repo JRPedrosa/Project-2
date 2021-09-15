@@ -1,37 +1,56 @@
-<h2>Signup</h2>
+<div class="container">
 
-<form action="/signup" method="POST" enctype="multipart/form-data">
+<div class="row">
+<div class="col-md-3">
+</div>
 
+<div class="col-md-6">
+
+
+<form class="card-template forms" action="/signup" method="POST" enctype="multipart/form-data">
+ <h2>Signup</h2>
   
-  <div >
-    <label> Username</label>
-    <input type="text" name= "username"  placeholder="Enter Username" required>
+  <div class="form-group">
+    <label class="form-label"> Username</label>
+    <input type="text" name= "username"  placeholder="Enter Username" class="form-control mb-2" required>
   </div>
 
-  <div >
-    <label >Bio (optional)</label>
-    <input type="text" name= "bio"  placeholder="Something about you...">
+  <div class="form-group">
+    <label class="form-label">Bio (optional)</label>
+    <input type="text" name= "bio"  placeholder="Something about you..." class="form-control mb-2">
   </div>
 
 
-  <div>
-    <label> Email</label>
-    <input type="email" name= "email"  placeholder="Enter email" required>
+  <div class="form-group">
+    <label class="form-label"> Email</label>
+    <input type="email" name= "email"  placeholder="Enter email" class="form-control mb-2" required>
   </div>
 
-  <div>
-    <label> Password</label>
-    <input type="password" name="password"  placeholder="Password" required>
+  <div class="form-group">
+    <label class="form-label"> Password</label>
+    <input type="password" name="password"  placeholder="Password"  class="form-control mb-2" required>
   </div>
 
-<div>
-  <label> Profile Picture </label>
-  <input type="file" name="photo">
+<div class="form-group">
+  <label class="form-label"> Profile Picture </label>
+  <input type="file" name="photo" class="form-control mb-2">
 </div>
   
 
-<button type="submit" >Create Account</button>
+<button class="btn btn-outline-success button" type="submit" >Create Account</button>
+
 
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>
 {{/if}}
+
+</div>
+
+  <div class="col-md-3">
+  </div>
+
+</div>
+</div>
+
+
+
