@@ -31,18 +31,19 @@ router.post("/edit-profile/:id", async (req, res) => {
         expectedDays, 
         workoutGoals
     })
-    res.redirect(`/edit-profile/${req.params.id}`)
+    res.redirect(`/profile/${req.params.id}`)
 })
 
 router.get("/my-workouts/:id", requireLogin, async (req, res) => {
     const workouts = await Workout.find().populate("user");
-    res.render("users/my-workouts", { workouts });
+    const userId = req.params.id;
+    res.render("users/my-workouts", { workouts, userId });
 })
 
 router.get("/profile/:id", requireLogin, async (req, res) => {
     // const user = await User.findById(req.params.id);
     const user = await User.findById(req.params.id);
-    console.log(user);
+    // console.log(user);
     res.render("users/profile", user);
 })
 
@@ -51,7 +52,7 @@ router.get("/edit-account/:id", requireLogin, (req, res) => {
     res.render("users/edit-account");
 })
 
-router.post("/exercise-delete/:exerciseId/:workoutId", async (req, res) => {
+router.post("/exercise-delete/:exerciseId/:workoutId", async (req, res) => {  // Bad try at trying to implement the delete a single exercise button
     const exerciseId = req.params.exerciseId;
     const exercise = await Workout.exercises.findById(exerciseId);
     await Workout.findByIdAndUpdate(req.params.workoutId, {

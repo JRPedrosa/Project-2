@@ -24,10 +24,13 @@ Main Goal:  {{workoutGoals}}
         <button type="submit"> 💪  {{like.length}}</button>
 </form>
 
+<br>
  
-All Comments:
+<h4>All Comments:</h4>
 {{#each reviews}}
-<p>{{comment}} - {{name}}</p>
+<p>Review: {{comment}}</p>
+<p>by: {{name}} </p>
+<br> <br> <br>
 {{/each}}
 
 
