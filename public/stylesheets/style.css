@@ -16,7 +16,7 @@
 
 .fithub-box {
   width: 100vw;
-  min-height: 100vh;
+  height: vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,7 @@
 
 
 body {
-  padding: 50px;
+  
   font-family: "Open Sans"; font-size: 14px; 
 
 }

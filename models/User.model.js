@@ -26,7 +26,6 @@ const userSchema = new Schema({
   gender: { 
      type: String,
      enum: ["female", "male", "prefer not to say"],
-     required: true,
     },
   
   age: {
