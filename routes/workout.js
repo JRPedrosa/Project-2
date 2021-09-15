@@ -153,12 +153,15 @@ router.get("/listexercise/:id", requireLogin, async (req, res) => {   //Specific
 
 router.post("/workout-delete/:id", async (req, res) => {   //Delete workouts from the workout list.
   await Workout.findByIdAndDelete(req.params.id);
-  res.redirect("/workout-list");
+  res.redirect(`/my-workouts/${req.session.currentUser._id}`);
 });
+
+
+
 
 router.post("/workout/:id/like", async (req, res) => {
   try {
-    const user = await User.findById(req.session.currentUser.id);
+    const user = await User.findById(req.session.currentUser._id); // The underscore before id was the only "correction" here
     const workout = await Workout.findById(req.params.id);
 
     const existingLike = await Like.findOne({
@@ -185,6 +188,7 @@ router.post("/workout/:id/like", async (req, res) => {
   console.log(`An error occurred ${e}`);
   } 
 });
+
 
 router.post("/workout/:id/comment", async (req, res) => {
   const comment  = req.body.comment;

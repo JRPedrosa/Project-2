@@ -5,7 +5,7 @@
   
   <div >
     <label>Gender</label>
-     <select name="gender">
+     <select name="gender" required>
         <option value="0">Select</option>
         <option>Male</option>
         <option>Female</option>
@@ -15,22 +15,22 @@
 
   <div >
     <label>Age</label>
-    <input type="number" name= "age" min=18 >
+    <input type="number" name= "age" min=18 required >
   </div>
 
   <div>
     <label>Height (in cm)</label>
-    <input type="number" name= "height" min=130 >
+    <input type="number" name= "height" min=130 required >
   </div>
 
   <div>
     <label>Weight (in Kg)</label>
-    <input type="number" name="weight" min=40 >
+    <input type="number" name="weight" min=40 required >
   </div>
 
 <div>
   <label>Disability</label>
-    <select name="disability">
+    <select name="disability" required>
         <option value="0">Select</option>
         <option>Yes</option>
         <option>No</option>
@@ -39,7 +39,7 @@
 
  <div >
     <label>Activity Level</label>
-     <select name="activityLevel">
+     <select name="activityLevel" required>
         <option value="0">Select</option>
         <option>Lazy Bastard</option>
         <option>Active</option>
@@ -52,7 +52,7 @@
 
 <div>
   <label>Workout days/week</label>
-   <select name="expectedDays">
+   <select name="expectedDays" required>
         <option value="0">Select</option>
         <option>1</option>
         <option>2</option>
@@ -66,7 +66,7 @@
 
 <div>
   <label>Workout Goals</label>
-   <select name="workoutGoals">
+   <select name="workoutGoals" required>
         <option value="0">Select</option>
         <option>Lose fat</option>
         <option>Get fit</option>

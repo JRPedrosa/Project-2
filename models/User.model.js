@@ -23,7 +23,11 @@ const userSchema = new Schema({
 
   photo: String,
   
-  gender: { type: String, enum: ["female", "male", "prefer not to say"] },
+  gender: { 
+     type: String,
+     enum: ["female", "male", "prefer not to say"],
+     required: true,
+    },
   
   age: {
     type: Number,

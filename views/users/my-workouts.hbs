@@ -2,32 +2,34 @@
 
 {{#each workouts}}
 
-<a href="/workout-detail/{{id}}">{{title}}</a>
-<br>
+    {{#eq user.id ../userId}}
 
-<div>
-        <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
-        <p> by <a href="/profile/{{user.id}}">{{user.username}}</a>
-        </p>
- <div>
+        <a href="/workout-detail/{{id}}">{{title}}</a>
+        <br>
 
-<br>
+        <div>
+                <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
+                <p> by <a href="/profile/{{user.id}}">{{user.username}}</a>
+                </p>
+        <div>
 
-Description: {{description}}
-<br>
-<br>
-Main Goal:  {{workoutGoals}}
-<br>
+        <br>
 
-<a href="/workout/{{id}}">Add an exercise</a>
+        Description: {{description}}
+        <br>
+        <br>
+        Main Goal:  {{workoutGoals}}
+        <br>
 
-<form action="/workout-delete/{{id}}" method="POST">
-    <button type="submit">Delete</button>
-</form>
+        <a href="/workout/{{id}}">Add an exercise</a>
 
+        <form action="/workout-delete/{{id}}" method="POST">
+            <button type="submit">Delete</button>
+        </form>
 
+        <hr />
+    {{/eq}}
 
-<hr />
 {{/each}}
 
 
