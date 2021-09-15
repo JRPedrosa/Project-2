@@ -1,9 +1,10 @@
 <h1>MAIN PROFILE PAGE </h1>
 
-
+{{#eq user.username activeUserName}}
 <a href="/edit-profile/{{loggedInUserID}}">Edit profile</a>
 <a href="/edit-account/{{loggedInUserID}}">Edit account</a>
 <a href="/my-workouts/{{loggedInUserID}}">My workouts</a>
+{{/eq}}
 
 <br>
 <br>
@@ -11,27 +12,27 @@
 <br>
 <br>
 
-username: {{username}}<br>
+username: {{user.username}}<br>
 
-bio: {{bio}}<br>
+bio: {{user.bio}}<br>
 
-email: {{email}}<br>
+email: {{user.email}}<br>
 
-photo: <img src={{photo}} width="80"><br>
+photo: <img src={{user.photo}} width="80"><br>
 
-disability: {{disability}}<br>
+disability: {{user.disability}}<br>
 
 
-activityLevel: {{activityLevel}}<br>
+activityLevel: {{user.activityLevel}}<br>
 
-age: {{age}}<br>
+age: {{user.age}}<br>
 
-expectedDays: {{expectedDays}};<br>
+expectedDays: {{user.expectedDays}};<br>
 
-gender: {{gender}}<br>
+gender: {{user.gender}}<br>
 
-height: {{height}}<br>
+height: {{user.height}}<br>
 
-weight: {{weight}}<br>
+weight: {{user.weight}}<br>
 
-workoutGoals: {{workoutGoals}}<br>
+workoutGoals: {{user.workoutGoals}}<br>
