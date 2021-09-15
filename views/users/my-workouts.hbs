@@ -21,6 +21,10 @@
         Main Goal:  {{workoutGoals}}
         <br>
 
+        {{!-- {{#each exercises}}
+        <p>{{_id}}</p>
+        {{/each}} --}}
+
         <a href="/workout/{{id}}">Add an exercise</a>
 
         <form action="/workout-delete/{{id}}" method="POST">

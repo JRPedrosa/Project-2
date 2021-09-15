@@ -1,4 +1,24 @@
 <h1>EDIT ACCOUNT PAGE</h1>
 
 
-<p> insert form to update bio, phot and email (eventually also change password</p>
+<form class="card-template forms" action="/edit-account/{{loggedInUserID}}" method="POST" enctype="multipart/form-data">
+
+
+ <div class="form-group">
+    <label class="form-label">Update Email</label>
+    <input type="email" name= "email"  placeholder="Enter email" class="form-control mb-2" required>
+  </div>
+
+
+ <div class="form-group">
+     <label class="form-label">Update Bio</label>
+     <input type="text" name= "bio"  placeholder="Something about you..." class="form-control mb-2" required>
+ </div>
+
+  <div class="form-group">
+    <label class="form-label">Update Profile Picture </label>
+    <input type="file" name="photo" class="form-control mb-2" required>
+  </div>
+  
+
+<button class="btn btn-outline-success button" type="submit" >Create Account</button>

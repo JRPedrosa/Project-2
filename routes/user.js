@@ -19,8 +19,8 @@ router.get("/edit-profile/:id", requireLogin, (req, res) => {
     res.render("users/edit-profile", user);
 })
 
-router.post("/edit-profile/:id", async (req, res) => {
-    const { gender, age, height, weight, disability, activityLevel, expectedDays, workoutGoals } = req.body;
+router.post("/edit-profile/:id",fileUpload.single("photo"), async (req, res) => {
+    const { gender, age, height, weight, disability, activityLevel, expectedDays, workoutGoals,} = req.body;
     await User.findByIdAndUpdate(req.params.id, {
         gender, 
         age, 
@@ -29,10 +29,29 @@ router.post("/edit-profile/:id", async (req, res) => {
         disability, 
         activityLevel, 
         expectedDays, 
-        workoutGoals
+        workoutGoals,
     })
     res.redirect(`/profile/${req.params.id}`)
 })
+
+
+router.post("/edit-account/:id",fileUpload.single("photo"), async (req, res) => {
+    const {email, bio} = req.body;
+
+    let fileUrlOnCloudinary = "";
+    if (req.file) {
+        fileUrlOnCloudinary = req.file.path; //the path on cloudinary
+    }
+
+    await User.findByIdAndUpdate(req.params.id, {
+        photo: fileUrlOnCloudinary,
+        email,
+        bio,
+    })
+    res.redirect(`/profile/${req.params.id}`)
+})
+
+
 
 router.get("/my-workouts/:id", requireLogin, async (req, res) => {
     const workouts = await Workout.find().populate("user");
@@ -54,12 +73,12 @@ router.get("/edit-account/:id", requireLogin, (req, res) => {
 
 router.post("/exercise-delete/:exerciseId/:workoutId", async (req, res) => {  // Bad try at trying to implement the delete a single exercise button
     const exerciseId = req.params.exerciseId;
-    const exercise = await Workout.exercises.findById(exerciseId);
-    await Workout.findByIdAndUpdate(req.params.workoutId, {
-        $pop: { exercises: exercise },
-      });
-    res.redirect(`workout/${req.params.workoutId}`)
-})
+     await Workout.findByIdAndUpdate(req.params.workoutId, {
+        $pull:  { "exercises": { _id: exerciseId}  }
+      });  
+   
+    res.redirect(`/workout/${req.params.workoutId}`)
+    })
 
 
 module.exports = router;

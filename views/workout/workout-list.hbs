@@ -1,6 +1,19 @@
 <h2>Public Workout Feed</h2>
 
+
+<form action="/workout-list" method="POST">
+<label>Filter by Workout Goals</label>
+   <select name="workoutGoals">
+        <option value="0">Select</option>
+        <option>Lose fat</option>
+        <option>Get fit</option>
+        <option>Gain muscle</option>
+    </select>
+   <button type="submit" >Done</button>    
+   </form>
+
 {{#each workouts}}
+
 
 <a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> {{createdAt}}
 <br>

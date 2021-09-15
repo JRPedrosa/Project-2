@@ -99,16 +99,21 @@
 {{#each workout.exercises}}
     {{#eq day "day1"}}
         
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+       
+
  <br><br>
     {{/eq}}
 {{/each}}
@@ -119,16 +124,21 @@
 {{#each workout.exercises}}
     {{#eq day "day2"}}
         
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+
+
  <br><br>
         
     {{/eq}}
@@ -141,16 +151,21 @@
 {{#each workout.exercises}}
     {{#eq day "day3"}}
 
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+       
+
  <br><br>
     {{/eq}}
 {{/each}}
@@ -161,16 +176,21 @@
 {{#each workout.exercises}}
     {{#eq day "day4"}}
         
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+       
+
  <br><br>
     {{/eq}}
 {{/each}}
@@ -181,16 +201,21 @@
 {{#each workout.exercises}}
     {{#eq day "day5"}}
         
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+       
+
  <br><br>
     {{/eq}}
 {{/each}}
@@ -201,16 +226,21 @@
 {{#each workout.exercises}}
     {{#eq day "day6"}}
         
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+       
+
  <br><br>
     {{/eq}}
 {{/each}}
@@ -221,16 +251,21 @@
 {{#each workout.exercises}}
     {{#eq day "day7"}}
         
-        {{name}}
+        <a href="/listexercise/{{id}}">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
         reps: {{reps}}
         <br><br>
 
-        <form action="/exercise-delete/{{id}}/{{workout.id}}" method="POST">
+        <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+
+        
+        <p>{{_id}}</p>
+       
+
  <br><br>
         
     {{/eq}}

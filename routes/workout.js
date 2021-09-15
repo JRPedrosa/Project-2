@@ -136,6 +136,17 @@ router.get("/workout-list", requireLogin, async (req, res, next) => {  //List of
 });
 
 
+router.post("/workout-list", async (req, res) => {
+  const filter = req.body.workoutGoals;
+  // console.log(filter)
+  const selectedWorkouts = await Workout.find({workoutGoals: filter})
+  // console.log(selectedWorkouts)
+  res.render("workout/workout-list", {workouts: selectedWorkouts})
+
+
+})
+
+
 
 router.get("/workout-detail/:id", requireLogin, async (req, res) => {  //Specific workout details
   const workout = await Workout.findById(req.params.id);
