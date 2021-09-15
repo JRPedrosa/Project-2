@@ -138,7 +138,7 @@ router.get("/workout-list", requireLogin, async (req, res, next) => {
 // FILTER for main list of workouts
 router.post("/workout-list", async (req, res) => {
   const filter = req.body.workoutGoals;
-  const selectedWorkouts = await Workout.find({workoutGoals: filter})
+  const selectedWorkouts = await Workout.find({workoutGoals: filter}).populate("user");
 
   res.render("workout/workout-list", {workouts: selectedWorkouts})
 
