@@ -45,7 +45,12 @@ const workoutSchema = mongoose.Schema(
       ref: 'Like' 
 
    
-  }]
+  }],
+
+  date: {
+    type: Date,
+    default: Date.now
+},
   
 },
 

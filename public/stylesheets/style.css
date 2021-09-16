@@ -14,13 +14,13 @@ a {
 }
 
 a:hover {
-  color: #F7F7F7; }
+  color: #212529; }
 
 h1 {
   color: 15px;
 }
 p {
-  color: #F7F7F7
+  color: #212529
 }
 
 
@@ -37,13 +37,9 @@ p {
   border: 0.1rem #66A182 solid;
   margin-bottom: 2rem;
   border-radius: 1rem;
-  background-color: #212529;
-  color: #F7F7F7;
+  background-color: #F7F7F7;
+  color: #212529;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4457a701a14e9ec8e5dd44fa3e9a32200165c28e
 }
 
 

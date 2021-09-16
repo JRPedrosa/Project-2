@@ -35,7 +35,8 @@
 
 
 <div class="workout-post">
-       <a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> {{createdAt}}
+       <a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> 
+        <small> {{date}} </small>
         <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
         <p class="workout-posted-by"> by <a href="/profile/{{user.id}}">{{user.username}}</a>
         </p>

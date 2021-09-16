@@ -55,6 +55,15 @@ const userSchema = new Schema({
     enum: ["Lose fat", "Get fit", "Gain muscle"],
   },
 
+
+fbTokens: Array,
+facebook: {
+    type: String
+},
+google: {
+    type: String
+},
+
 });
 
 const User = model("User", userSchema);
