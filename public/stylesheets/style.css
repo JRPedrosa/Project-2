@@ -283,6 +283,13 @@ h1 {
   margin-top: 1rem;
   border-radius: 10px;
 
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  align-content: center;
+  align-items: center;
+    
+
 }
 
 /* Joao */
@@ -292,11 +299,12 @@ h1 {
   margin-bottom: 1rem;
   margin-top: 1rem; }
 
-  .workout-caption {
-    display:flex;
-    justify-content:center
-    
-  }
+.workout-caption {
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 12px;
+  
+}
 
 
   .dayAddExer {
@@ -319,5 +327,38 @@ h1 {
 }
 
 .first {
-  height: 200px;
+  height: 100px;
+}
+
+
+.commentSection {
+  background-color: #66a182;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.workout-comments span {
+  font-weight: bolder;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+
+#reviewName {
+  color:black;
+}
+
+.commentSection textarea {
+  width: 100%;
+}
+
+.commentSection button {
+  border-radius: 10px;
+}
+
+.main-profile hr {
+  color: rgb(138, 118, 118) !important;
 }
