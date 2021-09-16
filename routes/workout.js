@@ -132,7 +132,7 @@ router.post("/workout/:id", async (req, res) => {
 router.get("/workout-list", requireLogin, async (req, res, next) => {  
   const workouts = await Workout.find()
   .populate("user")
-  .populate("comments.commentUser");
+  // .populate("comments.commentUser");
 
   res.render("workout/workout-list", { workouts });
 });
@@ -194,7 +194,7 @@ router.post("/workout/:id/like", async (req, res) => {
         }
       })
     } else {
-      //Delete like
+      
     }
    res.redirect("/workout-list");
    } catch (e) {
@@ -203,22 +203,32 @@ router.post("/workout/:id/like", async (req, res) => {
   } 
 });
 
-// REVIEWS
-router.post("/workout/:id/comment", async (req, res) => { 
-  
-  const newComment = {
-    commentBody: req.body.commentBody,
-    commentUser: req.session.currentUser.username
-  }
-  
-  // const comment  = req.body.comment;
-  // const name = req.session.currentUser.username;
+// Comments
 
+// router.post("/workout/:id/comment", async (req, res) => { 
+  
+//   const newComment = {
+//     commentBody: req.body.commentBody,
+//     commentUser: req.session.currentUser.username
+//   }
+ 
+
+//   await Workout.findByIdAndUpdate(req.params.id, {
+//     $push: { newComment },
+//   });
+//   res.redirect("/workout-list");
+// }); 
+
+router.post("/workout/:id/comment", async (req, res) => { 
+  const comment  = req.body.comment;
+  const name = req.session.currentUser.username;
   await Workout.findByIdAndUpdate(req.params.id, {
-    $push: { newComment },
+    $push: { reviews: { name, comment } },
   });
   res.redirect("/workout-list");
-}); 
+});
+
+
 
 
 

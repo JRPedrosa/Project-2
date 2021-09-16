@@ -60,7 +60,7 @@
 
 
 
-<div class= "workout-comments">
+{{!-- <div class= "workout-comments">
 
     {{#each comments}}
             <div class="media mt-3">
@@ -70,23 +70,32 @@
                 </div>
                 <div class="media-body">
                     <a href="/profile/{{commentUser.id}}"><h5 class="mt-0">{{commentUser.username}}</h5></a>
-                    <p>{{commentBody}}</p>
+                    <p>hdsBVsidhb{{commentBody}}</p>
                     <small>{{commentDate}}</small>
                 </div>
-            </div>
+            </div> --}}
 
 
-         
-{{!-- <p> All Comments:</p>
+ <div class = "workout-comments"    >    
+<p> All Comments:</p>
 {{#each reviews}}
 <p>Review: {{comment}}</p>
-<p>by: {{name}} </p> --}}
+<p>by: {{name}} </p>
 
 {{/each}}
 
-<div class = "workout-comment-post"
+
+
+{{!-- <div class = "workout-comment-post">
 <form action="/workout/{{id}}/comment" method="POST">
     <textarea name="commentBody" placeholder="Add a comment.."></textarea>
+    <button type="submit">Comment</button>
+</form>
+</div> --}}
+
+<div class = "workout-comment-post">
+<form action="/workout/{{id}}/comment" method="POST">
+    <textarea name="comment" placeholder="Add a comment.."></textarea>
     <button type="submit">Comment</button>
 </form>
 </div>

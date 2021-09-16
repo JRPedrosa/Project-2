@@ -1,10 +1,59 @@
-<h1 class="capitalize">{{name}}</h1>
+<h1 class="capitalize profile-title" >{{name}}</h1>
 
-<p class="capitalize">Equipment: {{equipment}}</p>
+<div class="page-top"> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+<div class="col-6">
+
+
+ <section class="card-template">
+
+        <p class="capitalize"><span>Equipment: </span>{{equipment}}</p>
+        <p class="capitalize"><span>Body part: </span>{{bodyPart}}</p>
+        <p class="capitalize"><span>Target Muscle: </span>{{target}}</p>
+
+
+        {{#if gifUrl}}
+        <img src ={{gifUrl}} id="imageExer"/>
+        {{/if}}
+
+
+</section>
+  </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+<br>
+
+</hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 d-flex justify-content-center">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <p class="capitalize">Equipment: {{equipment}}</p>
 <p class="capitalize">Body part: {{bodyPart}}</p>
 <p class="capitalize">Target Muscle: {{target}}</p>
 
 
 {{#if gifUrl}}
 <img src ={{gifUrl}} />
-{{/if}}
+{{/if}} --}}
