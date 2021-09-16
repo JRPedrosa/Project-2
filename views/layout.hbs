@@ -35,7 +35,7 @@
                   <div class="first-part">
 
                      <li class="nav-item">
-                        <a class="nav-link" href="/create-workout">Create a new workout plan</a>
+                        <a class="nav-link" href="/create-workout">Create workout plan</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="/listexercise">Exercise Directory</a>
@@ -43,9 +43,20 @@
 
                   </div>
                   
-                  <div class="profile">
-                     <li class="nav-item profileAndLogout">
-                        <a class="nav-link" href="/profile/{{loggedInUserID}}">Welcome {{loggedInUser}}</a>
+                  <div class="profile nav-item profileAndLogout">
+                     
+
+                         <li class="nav-item dropdown">
+          
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+                        <a class="nav-link dropdown-toggle" href="/profile/{{loggedInUserID}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Welcome {{loggedInUser}}</a>
+                     
+                     
                      </li>
                      <li class="nav-item profileAndLogout">
                         <form action="/logout" method="POST">
