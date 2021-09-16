@@ -5,6 +5,7 @@ body {
   font-family: "Open Sans"; font-size: 14px; 
   margin-top: 0;
   background-color: #212529;
+  color: #F7F7F7; *
 
 }
 
@@ -38,7 +39,8 @@ p {
   border-radius: 1rem;
   background-color: #212529;
   color: #F7F7F7;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; }
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
+}
 
 
 

@@ -27,49 +27,47 @@
 {{#each workouts}}
  <section class="card-template">
 
-<a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> {{createdAt}}
-<br>
 
-<div class="workout-post"></div>
+
+<div class="workout-post">
+       <a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> {{createdAt}}
         <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
         <p class="workout-posted-by"> by <a href="/profile/{{user.id}}">{{user.username}}</a>
         </p>
  <div>
 
-<br>
+ <div class = "workout-description">
+     <p class="workout-caption" Description: {{description}}></p>
+</div>
 
-<p class="workout-caption" Description: {{description}}>
-</p>
-<br>
-<br>
+
+<div class = "workout-footer">
 <p  class= "workout-goals" Main Goal:  {{workoutGoals}} ></p>
-<br>
-
-
 <form action="/workout/{{id}}/like" method="POST">
         <button class="btn btn-outline-secondary" type="submit"> 💪  {{like.length}}</button>
 </form>
+</div>
 
-<br>
- 
-<h4>All Comments:</h4>
+
+<div class= "workout-comments">
+<p> All Comments:</p>
 {{#each reviews}}
 <p>Review: {{comment}}</p>
 <p>by: {{name}} </p>
-<br> <br> <br>
+
 {{/each}}
-
-
 <form action="/workout/{{id}}/comment" method="POST">
     <textarea name="comment" placeholder="Add a comment.."></textarea>
     <button type="submit">Comment</button>
-
 </form>
+</div>
 
-<hr />
+
 </div>
     </section>
   {{/each}} 
+  
+  
   </div>
     <div class="col">
     </div>
