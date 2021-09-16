@@ -5,7 +5,7 @@ body {
   font-family: "Open Sans"; font-size: 14px; 
   margin-top: 0;
   background-color: #212529;
-  color: #F7F7F7; *
+  color: #F7F7F7; 
 
 }
 
@@ -40,6 +40,10 @@ p {
   background-color: #212529;
   color: #F7F7F7;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4457a701a14e9ec8e5dd44fa3e9a32200165c28e
 }
 
 
@@ -121,6 +125,8 @@ p {
 
 .profile-title {
   text-align: center;
+  font-weight: bolder;
+  font-size: 50px;
 }
 
 .profileLinks {
@@ -149,3 +155,43 @@ h1 {
   .desktop {
     display: block; 
   }}
+
+.profileAndLogout {
+  position: relative;
+  left: 1170px;
+  justify-self: center;
+}
+
+
+.profileAndLogout button {
+  position: relative;
+  top: 6px;
+  border-radius: 50px;
+  color: white;
+  background-color: rgb(57, 102, 57);
+}
+
+.navbar {
+  background-color: #66A182 !important;
+  border-radius: 10px;
+  color: #F7F7F7
+}
+
+
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter button {
+  border-radius: 50px;
+  color:#F7F7F7;
+  background-color: #66A182;
+}
+
+.filterSelect {
+  background-color: #F7F7F7 ;
+}
