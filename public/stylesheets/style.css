@@ -14,7 +14,7 @@ a {
 }
 
 a:hover {
-  color: #212529; }
+  color: white; }
 
 h1 {
   color: 15px;
@@ -239,3 +239,41 @@ h1 {
   width: 600px;
   margin-bottom: 30px;
 }
+
+/* Public Workouts */
+
+.workout-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.workout-goals {
+   background-color: #66A182;
+   color: #F7F7F7;
+   border-radius: 30px;
+   font-weight: 400;
+
+}
+
+.btn-outline-secondary {
+
+  background-color: #F7F7F7;
+  border-color: #66A182; 
+  color:#66A182
+
+}
+  
+
+.btn-outline-secondary:hover {
+  background-color: #66a182;
+  border-color: #F7F7F7;
+  color: white; 
+}
+
+.workout-post {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  margin-top: 1rem; }

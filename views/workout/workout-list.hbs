@@ -25,6 +25,8 @@
     <div class="col">
     </div>
 
+
+
 <div class="col-6">
    
 
@@ -32,15 +34,16 @@
 {{#each workouts}}
  <section class="card-template">
 
-
+<div class = "workout-title">
+<a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> 
+        <small> {{date}} </small>
+</div>
 
 <div class="workout-post">
-       <a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> 
-        <small> {{date}} </small>
         <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
         <p class="workout-posted-by"> by <a href="/profile/{{user.id}}">{{user.username}}</a>
         </p>
- <div>
+ </div>
 
  <div class = "workout-description">
      <p class="workout-caption">Description: {{description}}</p>
@@ -48,22 +51,42 @@
 
 
 <div class = "workout-footer">
-<p  class= "workout-goals"> Main Goal:  {{workoutGoals}} </p>
+<button  class= "workout-goals"> {{workoutGoals}} </button>
 <form action="/workout/{{id}}/like" method="POST">
-        <button class="btn btn-outline-secondary" type="submit"> 💪  {{like.length}}</button>
+        <button class="btn btn-outline-secondary like-button" type="submit"> 💪  {{like.length}}</button>
 </form>
 </div>
 
 
+
+
 <div class= "workout-comments">
-<p> All Comments:</p>
+
+    {{#each comments}}
+            <div class="media mt-3">
+                <a class="mr-3" href="#">
+                    <img id="comment-user-picture" src="{{commentUser.photo}}">
+                </a>
+                </div>
+                <div class="media-body">
+                    <a href="/profile/{{commentUser.id}}"><h5 class="mt-0">{{commentUser.username}}</h5></a>
+                    <p>{{commentBody}}</p>
+                    <small>{{commentDate}}</small>
+                </div>
+            </div>
+
+
+         
+{{!-- <p> All Comments:</p>
 {{#each reviews}}
 <p>Review: {{comment}}</p>
-<p>by: {{name}} </p>
+<p>by: {{name}} </p> --}}
 
 {{/each}}
+
+<div class = "workout-comment-post"
 <form action="/workout/{{id}}/comment" method="POST">
-    <textarea name="comment" placeholder="Add a comment.."></textarea>
+    <textarea name="commentBody" placeholder="Add a comment.."></textarea>
     <button type="submit">Comment</button>
 </form>
 </div>
