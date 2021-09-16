@@ -40,6 +40,10 @@ p {
   background-color: #212529;
   color: #F7F7F7;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 82d1c6d2dfa1a3511bee8387fe9dea352aaeada5
 }
 
 
@@ -98,13 +102,42 @@ p {
 }
 
 
+.main-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+}
 
+.main-profile p {
+  text-decoration: underline;
+  font-size: 18px;
+  color: rgb(150, 238, 150);
+}
 
+.main-profile div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
+.profile-title {
+  text-align: center;
+}
 
+.profileLinks {
+  text-align: center;
+}
 
-
+.profileLinks a {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50px;
+  padding: 6px;
+  text-decoration: none;
+}
 
 
 

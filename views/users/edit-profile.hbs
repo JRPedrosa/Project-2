@@ -1,11 +1,27 @@
-<h2>Edit your profile</h2>
+<h2 class="profile-title">Edit your profile</h2>
 
-<form action="/edit-profile/{{loggedInUserID}}" method="POST">
+
+<div class="page-top"> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    
+<div class="col-6">
+
+
+
+
+
+
+
+<form class="card-template forms" action="/edit-profile/{{loggedInUserID}}" method="POST">
 
   
-  <div >
+  <div class="form-group" >
     <label>Gender</label>
-     <select name="gender" required>
+     <select name="gender" class="form-control mb-2" required>
         <option value="0">Select</option>
         <option>Male</option>
         <option>Female</option>
@@ -13,33 +29,33 @@
     </select>
    </div>
 
-  <div >
+  <div class="form-group">
     <label>Age</label>
-    <input type="number" name= "age" min=18 required >
+    <input type="number" name= "age" class="form-control mb-2" min=18 required >
   </div>
 
-  <div>
+  <div class="form-group">
     <label>Height (in cm)</label>
-    <input type="number" name= "height" min=130 required >
+    <input type="number" name= "height" class="form-control mb-2" min=130 required >
   </div>
 
-  <div>
+  <div class="form-group">
     <label>Weight (in Kg)</label>
-    <input type="number" name="weight" min=40 required >
+    <input type="number" name="weight" class="form-control mb-2" min=40 required >
   </div>
 
-<div>
+<div class="form-group">
   <label>Disability</label>
-    <select name="disability" required>
+    <select name="disability"  class="form-control mb-2" required>
         <option value="0">Select</option>
         <option>Yes</option>
         <option>No</option>
     </select>
 </div>
 
- <div >
+ <div class="form-group">
     <label>Activity Level</label>
-     <select name="activityLevel" required>
+     <select name="activityLevel" class="form-control mb-2" required>
         <option value="0">Select</option>
         <option>Lazy Bastard</option>
         <option>Active</option>
@@ -50,9 +66,9 @@
 
 
 
-<div>
+<div class="form-group">
   <label>Workout days/week</label>
-   <select name="expectedDays" required>
+   <select name="expectedDays" class="form-control mb-2" required>
         <option value="0">Select</option>
         <option>1</option>
         <option>2</option>
@@ -64,9 +80,9 @@
     </select>
 </div>
 
-<div>
+<div class="form-group">
   <label>Workout Goals</label>
-   <select name="workoutGoals" required>
+   <select name="workoutGoals"  class="form-control mb-2" required>
         <option value="0">Select</option>
         <option>Lose fat</option>
         <option>Get fit</option>
@@ -77,8 +93,30 @@
 
   
 
-<button type="submit" >Done</button>
+<button class="btn btn-outline-success button" type="submit" >Done</button>
 
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>
 {{/if}}
+
+
+
+
+
+  </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+<br>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 d-flex justify-content-center">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
