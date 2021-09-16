@@ -4,21 +4,23 @@ const bcrypt = require("bcryptjs");
 const fileUpload = require('../config/cloudinary');
 
 
+
+//Login page
 router.get("/", (req, res, next) => {
     res.render("auth/login");
   });
 
-
+//Signup page
 router.get("/signup", (req, res) => {
     res.render("auth/signup");
 });
 
 
-
+//Signing up and creating user
 router.post("/signup", fileUpload.single("photo"), async (req, res) => {
     let fileUrlOnCloudinary = "";
     if (req.file) {
-        fileUrlOnCloudinary = req.file.path; //the path on cloudinary
+        fileUrlOnCloudinary = req.file.path;
     }
 
     const {username, password, bio, email,} = req.body;
@@ -53,6 +55,7 @@ router.post("/signup", fileUpload.single("photo"), async (req, res) => {
 });
 
 
+//Loging in -> Redirects to the Main workouts list
 router.post("/login", async (req, res) => {
     const {username, password } = req.body;
 
@@ -82,7 +85,7 @@ router.post("/login", async (req, res) => {
 
 
 
-
+// Logout button
 router.post("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/");

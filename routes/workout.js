@@ -65,22 +65,22 @@ function getByMuscle(muscle) {
 
 // ROUTES BEGIN HERE  // 
 
-
-router.get("/listexercise", requireLogin, async (req, res, next) => {  //General exercise list
+//General exercise list
+router.get("/listexercise", requireLogin, async (req, res, next) => { 
   const allExercises = await getAllExercises();
 
   res.render("workout/exercise-list", { allExercises });
 });
 
 
-
-router.get("/create-workout", requireLogin, async (req, res, next) => { //First step in creating workout
+//First step in creating workout
+router.get("/create-workout", requireLogin, async (req, res, next) => {
   res.render("workout/workout-create");
 });
 
 
-
-router.post("/create-workout", async (req, res) => {  //Workout created, redirects to the list of workouts
+//Workout created, redirects to the list of workouts
+router.post("/create-workout", async (req, res) => {
   const { title, description, workoutGoals } = req.body;
   const workout = await Workout.create({ title, description, workoutGoals, user: req.session.currentUser });
   const id = workout.id;
@@ -88,8 +88,8 @@ router.post("/create-workout", async (req, res) => {  //Workout created, redirec
 });
 
 
-
-router.get("/workout/:id", requireLogin, async (req, res) => {     //General page for adding exercises
+//General page for adding exercises
+router.get("/workout/:id", requireLogin, async (req, res) => { 
   const workout = await Workout.findById(req.params.id);
   const allExercises = await getAllExercises();
 
@@ -97,8 +97,8 @@ router.get("/workout/:id", requireLogin, async (req, res) => {     //General pag
 });
 
 
-
-router.post("/workout/:id/filter", async (req, res) => {  //Filter by muscles
+//Filter by muscles
+router.post("/workout/:id/filter", async (req, res) => { 
   const workout = await Workout.findById(req.params.id);
   const target = req.body.target;
   const selectedMuscle = await getByMuscle(target);
@@ -107,8 +107,8 @@ router.post("/workout/:id/filter", async (req, res) => {  //Filter by muscles
 });
 
 
-
-router.post("/workout/:id", async (req, res) => { //The act of adding an exercise. Redirects to the general page for adding exercises.
+//The act of adding an exercise. Redirects to the general page for adding exercises.
+router.post("/workout/:id", async (req, res) => { 
   const exerciseID  = req.body.exercise;
   const exerciseFromApi = await getById(exerciseID);
 
@@ -128,51 +128,52 @@ router.post("/workout/:id", async (req, res) => { //The act of adding an exercis
 });
 
 
-
-router.get("/workout-list", requireLogin, async (req, res, next) => {  //List of workouts
+//Main list of workouts
+router.get("/workout-list", requireLogin, async (req, res, next) => {  
   const workouts = await Workout.find().populate("user");
 
   res.render("workout/workout-list", { workouts });
 });
 
-
+// FILTER for main list of workouts
 router.post("/workout-list", async (req, res) => {
   const filter = req.body.workoutGoals;
-  // console.log(filter)
-  const selectedWorkouts = await Workout.find({workoutGoals: filter})
-  // console.log(selectedWorkouts)
+  const selectedWorkouts = await Workout.find({workoutGoals: filter}).populate("user");
+
   res.render("workout/workout-list", {workouts: selectedWorkouts})
 
 
 })
 
 
-
-router.get("/workout-detail/:id", requireLogin, async (req, res) => {  //Specific workout details
+//Specific workout details
+router.get("/workout-detail/:id", requireLogin, async (req, res) => { 
   const workout = await Workout.findById(req.params.id);
   res.render("workout/workout-detail", workout);
 });
 
 
 
-
-router.get("/listexercise/:id", requireLogin, async (req, res) => {   //Specific exercise details
+//Specific exercise details
+router.get("/listexercise/:id", requireLogin, async (req, res) => { 
     const exercise = await getById(req.params.id);
     res.render("workout/exercise-detail", exercise);
   });
 
 
-router.post("/workout-delete/:id", async (req, res) => {   //Delete workouts from the workout list.
+
+//Delete workouts from the my workouts private list,
+router.post("/workout-delete/:id", async (req, res) => {  
   await Workout.findByIdAndDelete(req.params.id);
   res.redirect(`/my-workouts/${req.session.currentUser._id}`);
 });
 
 
 
-
-router.post("/workout/:id/like", async (req, res) => {
+// LIKE BUTTON
+router.post("/workout/:id/like", async (req, res) => { 
   try {
-    const user = await User.findById(req.session.currentUser._id); // The underscore before id was the only "correction" here
+    const user = await User.findById(req.session.currentUser._id); 
     const workout = await Workout.findById(req.params.id);
 
     const existingLike = await Like.findOne({
@@ -200,8 +201,8 @@ router.post("/workout/:id/like", async (req, res) => {
   } 
 });
 
-
-router.post("/workout/:id/comment", async (req, res) => {
+// REVIEWS
+router.post("/workout/:id/comment", async (req, res) => { 
   const comment  = req.body.comment;
   const name = req.session.currentUser.username;
 

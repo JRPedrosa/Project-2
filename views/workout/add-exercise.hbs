@@ -3,7 +3,7 @@
 
 
 <form action="/workout/{{id}}/filter" method="POST">
-    <select name="target">
+    <select name="target" class="capitalize">
         {{#if target}}
         <option value="0">{{target}}</option>
         <option value="abductors" >abductors</option>
@@ -56,7 +56,7 @@
 <form action="/workout/{{id}}" method="POST">
 
     <label>Select exercise</label>
-    <select name="exercise">
+    <select name="exercise" class="capitalize">
         <option value="0">Select</option>
         {{#each allExercises }}
             <option value={{id}}>{{name}}</option>
@@ -96,10 +96,11 @@
 <br>
 
 <h4>Day 1</h4>
+
 {{#each workout.exercises}}
     {{#eq day "day1"}}
         
-        <a href="/listexercise/{{id}}">{{name}}</a>
+        <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -110,10 +111,7 @@
             <button type="submit">Delete</button>
         </form>
 
-        
-        <p>{{_id}}</p>
        
-
  <br><br>
     {{/eq}}
 {{/each}}
@@ -121,10 +119,12 @@
 <br><br><br><br>
 
 <h4>Day 2</h4>
+
 {{#each workout.exercises}}
+    
     {{#eq day "day2"}}
         
-        <a href="/listexercise/{{id}}">{{name}}</a>
+         <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -135,13 +135,12 @@
             <button type="submit">Delete</button>
         </form>
 
-        
-        <p>{{_id}}</p>
 
 
  <br><br>
         
     {{/eq}}
+
 {{/each}}
 
 <br><br><br><br>
@@ -151,7 +150,7 @@
 {{#each workout.exercises}}
     {{#eq day "day3"}}
 
-        <a href="/listexercise/{{id}}">{{name}}</a>
+        <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -162,8 +161,6 @@
             <button type="submit">Delete</button>
         </form>
 
-        
-        <p>{{_id}}</p>
        
 
  <br><br>
@@ -176,7 +173,7 @@
 {{#each workout.exercises}}
     {{#eq day "day4"}}
         
-        <a href="/listexercise/{{id}}">{{name}}</a>
+        <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -188,7 +185,7 @@
         </form>
 
         
-        <p>{{_id}}</p>
+
        
 
  <br><br>
@@ -201,7 +198,7 @@
 {{#each workout.exercises}}
     {{#eq day "day5"}}
         
-        <a href="/listexercise/{{id}}">{{name}}</a>
+        <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -213,7 +210,7 @@
         </form>
 
         
-        <p>{{_id}}</p>
+
        
 
  <br><br>
@@ -226,7 +223,7 @@
 {{#each workout.exercises}}
     {{#eq day "day6"}}
         
-        <a href="/listexercise/{{id}}">{{name}}</a>
+        <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -238,7 +235,7 @@
         </form>
 
         
-        <p>{{_id}}</p>
+
        
 
  <br><br>
@@ -251,7 +248,7 @@
 {{#each workout.exercises}}
     {{#eq day "day7"}}
         
-        <a href="/listexercise/{{id}}">{{name}}</a>
+        <a href="/listexercise/{{id}}" class="capitalize">{{name}}</a>
         <br>
         sets: {{sets}}
         <br>
@@ -260,11 +257,8 @@
 
         <form action="/exercise-delete/{{_id}}/{{../id}}" method="POST">
             <button type="submit">Delete</button>
-        </form>
+        </form>    
 
-        
-        <p>{{_id}}</p>
-       
 
  <br><br>
         

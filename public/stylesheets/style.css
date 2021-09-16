@@ -106,5 +106,10 @@ p {
 
 
 
+h1 {
+  color: 15px;
+}
 
-
+.capitalize {
+  text-transform: capitalize;
+}
