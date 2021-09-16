@@ -40,6 +40,7 @@ p {
   background-color: #F7F7F7;
   color: #212529;
   box-shadow: #66a182 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
+  min-width: 500px;
 
 }
 
@@ -167,7 +168,6 @@ h1 {
 
 .profileAndLogout button {
   position: relative;
-  top: 6px;
   border-radius: 50px;
   color: white;
   background-color: rgb(57, 102, 57);
@@ -239,4 +239,27 @@ h1 {
 .workoutDetail div {
   width: 600px;
   margin-bottom: 30px;
+}
+
+.dayAddExer {
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+
+#imageExer {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.capitalize span {
+  font-weight: bolder;
+}
+
+.backgroundWhite {
+  background-color: #F7F7F7;
+}
+
+.first {
+  height: 200px;
 }
