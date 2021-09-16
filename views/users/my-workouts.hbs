@@ -1,6 +1,16 @@
 <h2>My PRIVATE Workouts</h2>
 
+<div class="page-top"> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+<div class="col-6">
+
 {{#each workouts}}
+
+ <section class="card-template">
 
     {{#eq user.id ../userId}}
 
@@ -34,7 +44,26 @@
         <hr />
     {{/eq}}
 
-{{/each}}
+<hr>
+</div>
+    </section>
+  {{/each}} 
+  </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+<br>
+
+</hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 d-flex justify-content-center">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
 
 
 
