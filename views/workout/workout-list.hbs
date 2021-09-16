@@ -42,14 +42,12 @@
  <div>
 
  <div class = "workout-description">
-     <p class="workout-caption"> Description: {{description}} </p>
+     <p class="workout-caption">Description: {{description}}</p>
 </div>
 
 
 <div class = "workout-footer">
-<p  class= "workout-goals"  >Main Goal:  {{workoutGoals}}</p>
-
-
+<p  class= "workout-goals"> Main Goal:  {{workoutGoals}} </p>
 <form action="/workout/{{id}}/like" method="POST">
         <button class="btn btn-outline-secondary" type="submit"> 💪  {{like.length}}</button>
 </form>
