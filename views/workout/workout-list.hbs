@@ -1,9 +1,11 @@
-<h2>Public Workout Feed</h2>
+<h2 class="profile-title">Public Workout Feed</h2>
 
+<br>
 
+<div  class="filter">
 <form action="/workout-list" method="POST">
 <label>Filter by Workout Goals</label>
-   <select name="workoutGoals">
+   <select name="workoutGoals" class="filterSelect">
         <option value="0">Select</option>
         <option>Lose fat</option>
         <option>Get fit</option>
@@ -11,8 +13,10 @@
     </select>
    <button type="submit" >Done</button>    
    </form>
-   
 
+   </div>
+   
+<br>
 
 <div class="page-top"> 
 </div>
@@ -20,7 +24,7 @@
   <div class="row">
     <div class="col">
     </div>
-    
+
 <div class="col-6">
    
 
@@ -38,12 +42,14 @@
  <div>
 
  <div class = "workout-description">
-     <p class="workout-caption" Description: {{description}}></p>
+     <p class="workout-caption"> Description: {{description}} </p>
 </div>
 
 
 <div class = "workout-footer">
-<p  class= "workout-goals" Main Goal:  {{workoutGoals}} ></p>
+<p  class= "workout-goals"  >Main Goal:  {{workoutGoals}}</p>
+
+
 <form action="/workout/{{id}}/like" method="POST">
         <button class="btn btn-outline-secondary" type="submit"> 💪  {{like.length}}</button>
 </form>
