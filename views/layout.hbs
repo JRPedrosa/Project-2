@@ -16,38 +16,31 @@
    <body>
 
       {{#if loggedInUser}}
+       
+         <a href="/listexercise">List of exercises</a>
+       
+
+       
+         <a href="/workout-list">Workout list</a>
+        
+
+      
+         <a href="/create-workout">Create workout</a>
+
+
          <p>Welcome {{loggedInUser}}</p>
+
+         <a href="/profile/{{loggedInUserID}}">View profile</a>
+
          <form action="/logout" method="POST">
             <button type="submit">Logout</button>
          </form>
+         
+          
 
-         <a href="/profile/{{loggedInUserID}}">View profile</a>
       {{/if}}
 
-      <nav>
-         <ul>
-
-            {{#if loggedInUser}}
-
-               <li>
-                  <a href="/listexercise">List of exercises</a>
-               </li>
-
-               <li>
-                  <a href="/workout-list">Workout list</a>
-               </li>
-
-               <li>
-                  <a href="/create-workout">Create workout</a>
-               </li>
-
-            {{else}}
-               
-
-            {{/if}}
-
-         </ul>
-      </nav>
+  
 
       {{{body}}}
 
