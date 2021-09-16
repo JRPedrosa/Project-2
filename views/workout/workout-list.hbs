@@ -1,27 +1,53 @@
 <h2>Public Workout Feed</h2>
 
+
+<form action="/workout-list" method="POST">
+<label>Filter by Workout Goals</label>
+   <select name="workoutGoals">
+        <option value="0">Select</option>
+        <option>Lose fat</option>
+        <option>Get fit</option>
+        <option>Gain muscle</option>
+    </select>
+   <button type="submit" >Done</button>    
+   </form>
+   
+
+
+<div class="page-top"> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+<div class="col-6">
+   
+
+
 {{#each workouts}}
+ <section class="card-template">
 
 <a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> {{createdAt}}
 <br>
 
-<div>
+<div class="workout-post"></div>
         <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
-        <p> by <a href="/profile/{{user.id}}">{{user.username}}</a>
+        <p class="workout-posted-by"> by <a href="/profile/{{user.id}}">{{user.username}}</a>
         </p>
  <div>
 
 <br>
 
-Description: {{description}}
+<p class="workout-caption" Description: {{description}}>
+</p>
 <br>
 <br>
-Main Goal:  {{workoutGoals}}
+<p  class= "workout-goals" Main Goal:  {{workoutGoals}} ></p>
 <br>
 
 
 <form action="/workout/{{id}}/like" method="POST">
-        <button type="submit"> 💪  {{like.length}}</button>
+        <button class="btn btn-outline-secondary" type="submit"> 💪  {{like.length}}</button>
 </form>
 
 <br>
@@ -41,7 +67,22 @@ Main Goal:  {{workoutGoals}}
 </form>
 
 <hr />
+</div>
+    </section>
+  {{/each}} 
+  </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+<br>
 
-
-{{/each}}
-
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 d-flex justify-content-center">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
