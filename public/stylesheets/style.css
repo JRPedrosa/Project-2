@@ -109,8 +109,9 @@ p {
 
 .main-profile p {
   text-decoration: underline;
-  font-size: 18px;
-  color: rgb(150, 238, 150);
+  font-size: 19px;
+  color: #66A182;
+  font-weight: bolder;
 }
 
 .main-profile div {
