@@ -28,28 +28,30 @@
                   <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
+                  <ul class="navbar-nav ul-nav">
                   {{!-- <li class="nav-item">
                      <a class="nav-link active" aria-current="page" href="/workout-list">Browse Workouts</a>
                   </li> --}}
-                  <li class="nav-item">
-                     <a class="nav-link" href="/create-workout">Create a new workout</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="/listexercise">Exercise Directory</a>
-                  </li>
+                  <div class="first-part">
 
-                  <div class="profile">
+                     <li class="nav-item">
+                        <a class="nav-link" href="/create-workout">Create a new workout</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/listexercise">Exercise Directory</a>
+                     </li>
+
+                  </div>
                   
-                  <li class="nav-item profileAndLogout">
-                     <a class="nav-link" href="/profile/{{loggedInUserID}}">Welcome {{loggedInUser}}</a>
-                  </li>
-                  <li class="nav-item profileAndLogout">
-                     <form action="/logout" method="POST">
-                        <button class="btn btn-outline-success me-2" type="submit">Logout</button>
-                     </form>
-                  </li>
-
+                  <div class="profile">
+                     <li class="nav-item profileAndLogout">
+                        <a class="nav-link" href="/profile/{{loggedInUserID}}">Welcome {{loggedInUser}}</a>
+                     </li>
+                     <li class="nav-item profileAndLogout">
+                        <form action="/logout" method="POST">
+                           <button class="btn btn-outline-success me-2" type="submit">Logout</button>
+                        </form>
+                     </li>
                   <div>
                
                   </ul>
