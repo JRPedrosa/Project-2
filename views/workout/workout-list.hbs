@@ -35,7 +35,7 @@
  <section class="card-template">
 
 <div class = "workout-title">
-<a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> 
+<a href="/workout-detail/{{id}}"><h4>{{title}}</h4></a> <hr>
         <small> {{date}} </small>
 </div>
 
@@ -51,14 +51,15 @@
 
 
 <div class = "workout-footer">
-<button  class= "workout-goals"> {{workoutGoals}} </button>
+<p  class= "workout-goals"> {{workoutGoals}} </p>
+
 <form action="/workout/{{id}}/like" method="POST">
         <button class="btn btn-outline-secondary like-button" type="submit"> 💪  {{like.length}}</button>
 </form>
 </div>
 
 
-
+<hr>
 
 {{!-- <div class= "workout-comments">
 
