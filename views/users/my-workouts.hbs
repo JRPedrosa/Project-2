@@ -10,9 +10,11 @@
 
 {{#each workouts}}
 
+ {{#eq user.id ../userId}}
+
  <section class="card-template">
 
-    {{#eq user.id ../userId}}
+    
 
         <a href="/workout-detail/{{id}}">{{title}}</a>
         
@@ -42,11 +44,12 @@
         </div>
 
         <hr />
-    {{/eq}}
+    
 
 
 </div>
     </section>
+    {{/eq}}
   {{/each}} 
   </div>
     <div class="col">
