@@ -1,38 +1,80 @@
-<h1>MAIN PROFILE PAGE </h1>
+<h1 class="profile-title">{{user.username}}'s Profile</h1>
 
+<br>
+
+<div class="profileLinks">
 {{#eq user.username activeUserName}}
 <a href="/edit-profile/{{loggedInUserID}}">Edit profile</a>
 <a href="/edit-account/{{loggedInUserID}}">Edit account</a>
 <a href="/my-workouts/{{loggedInUserID}}">My workouts</a>
 {{/eq}}
+</div>
 
 <br>
+
+<div class="page-top"> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    
+<div class="col-6">
+   
+
+
+<section class="card-template">
+
+
+     <div class="main-profile">
+
+            <div><p>Username: </p>{{user.username}}</div>
+
+            <div><p>Bio: </p>{{user.bio}}</div>
+
+            <div><p>Email: </p>{{user.email}}</div>
+
+            <div><p>Age: </p>{{user.age}}</div>
+
+            <div><p>Gender: </p>{{user.gender}}</div>
+
+            <div><p>Height: </p>{{user.height}}</div>
+
+            <div><p>Weight: </p>{{user.weight}}</div>
+
+            <div><p>Disability: </p>{{user.disability}}</div>
+
+            <div><p>Activity Level: </p>{{user.activityLevel}}</div>
+
+            <div><p>Workout Days In A Week: </p>{{user.expectedDays}}</div>
+
+            <div><p>Workout Goals: </p>{{user.workoutGoals}}</div>
+
+            <div><p>Photo: </p><img src={{user.photo}} width="80"></div>
+
+    </div>
+
+</section>
+
+
+  </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
 <br>
-<br>
-<br>
-<br>
-
-username: {{user.username}}<br>
-
-bio: {{user.bio}}<br>
-
-email: {{user.email}}<br>
-
-photo: <img src={{user.photo}} width="80"><br>
-
-disability: {{user.disability}}<br>
 
 
-activityLevel: {{user.activityLevel}}<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 d-flex justify-content-center">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
 
-age: {{user.age}}<br>
 
-expectedDays: {{user.expectedDays}};<br>
 
-gender: {{user.gender}}<br>
 
-height: {{user.height}}<br>
 
-weight: {{user.weight}}<br>
-
-workoutGoals: {{user.workoutGoals}}<br>
