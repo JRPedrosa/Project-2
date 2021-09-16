@@ -273,12 +273,31 @@ h1 {
   color: white; 
 }
 
+.workout-description {
+  background-color: white;
+  border-color: #212529;
+
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+
+}
+
+/* Joao */
 .workout-post {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
   margin-top: 1rem; }
-.dayAddExer {
+
+  .workout-caption {
+    display:flex;
+    justify-content:center
+    
+  }
+
+
+  .dayAddExer {
   text-align: center;
   font-weight: bolder;
   margin-bottom: 15px;
