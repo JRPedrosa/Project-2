@@ -15,36 +15,36 @@
     {{#eq user.id ../userId}}
 
         <a href="/workout-detail/{{id}}">{{title}}</a>
-        <br>
+        
 
-        <div>
+        <div class="private-post">
                 <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
                 <p> by <a href="/profile/{{user.id}}">{{user.username}}</a>
                 </p>
         <div>
 
-        <br>
+        <div class = "private-description">
+             <p class="private-caption">Description: {{description}}</p>
+             <p  class= "private-goals"> Main Goal:  {{workoutGoals}} </p>
+        <div>
 
-        Description: {{description}}
-        <br>
-        <br>
-        Main Goal:  {{workoutGoals}}
-        <br>
+        
+ 
+        
 
-        {{!-- {{#each exercises}}
-        <p>{{_id}}</p>
-        {{/each}} --}}
+       <div class = "private-edit">
 
         <a href="/workout/{{id}}">Add an exercise</a>
 
         <form action="/workout-delete/{{id}}" method="POST">
             <button type="submit">Delete</button>
         </form>
+        </div>
 
         <hr />
     {{/eq}}
 
-<hr>
+
 </div>
     </section>
   {{/each}} 
