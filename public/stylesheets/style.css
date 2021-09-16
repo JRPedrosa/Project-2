@@ -39,7 +39,7 @@ p {
   border-radius: 1rem;
   background-color: #F7F7F7;
   color: #212529;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
+  box-shadow: #66a182 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; 
 
 }
 
@@ -153,11 +153,15 @@ h1 {
     display: block; 
   }}
 
-.profileAndLogout {
-  position: relative;
-  left: 1170px;
-  justify-self: center;
+
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  
 }
+
 
 
 .profileAndLogout button {
@@ -166,13 +170,28 @@ h1 {
   border-radius: 50px;
   color: white;
   background-color: rgb(57, 102, 57);
+
 }
+
 
 .navbar {
   background-color: #66A182 !important;
+  
   border-radius: 10px;
   color: #F7F7F7
 }
+
+
+
+/* .button {
+  margin: 20px 30px; }
+
+.forms {
+  margin-top: 50px;
+  padding: 20px 70px; } */
+
+  /* .col-6 {
+    width: 50%; } */
 
 
 

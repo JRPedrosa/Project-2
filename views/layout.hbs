@@ -21,54 +21,41 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-               <a class="navbar-brand" href="#">FitHub💪</a>
+               <a class="navbar-brand" href="/workout-list">FitHub💪</a>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav">
+                  {{!-- <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="/workout-list">Browse Workouts</a>
+                  </li> --}}
                   <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="/workout-list">Workout list</a>
+                     <a class="nav-link" href="/create-workout">Create a new workout</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="/create-workout">Create workout</a>
+                     <a class="nav-link" href="/listexercise">Excercise Directory</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="/listexercise">List of exercises</a>
-                  </li>
+
+                  <div class="profile">
+                  
                   <li class="nav-item profileAndLogout">
                      <a class="nav-link" href="/profile/{{loggedInUserID}}">Welcome {{loggedInUser}}</a>
                   </li>
                   <li class="nav-item profileAndLogout">
                      <form action="/logout" method="POST">
-                        <button type="submit">Logout</button>
+                        <button class="btn btn-outline-success me-2" type="submit">Logout</button>
                      </form>
                   </li>
+
+                  <div>
                
                   </ul>
                </div>
             </div>
             </nav>
 
-         {{!-- <a href="/listexercise">List of exercises</a>
-       
-
-       
-         <a href="/workout-list">Workout list</a>
-        
-
       
-         <a href="/create-workout">Create workout</a> --}}
-
-
-         {{!-- <p>Welcome {{loggedInUser}}</p>
-
-         <a href="/profile/{{loggedInUserID}}">View profile</a>
-
-         <form action="/logout" method="POST">
-            <button type="submit">Logout</button>
-         </form>
-          --}}
           
 
       {{/if}}
