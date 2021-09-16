@@ -159,8 +159,7 @@ h1 {
 .profile {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding-left: 600px;
+  justify-content: flex-end ;
   
 }
 
@@ -185,11 +184,21 @@ h1 {
 
 
 
+.ul-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+  width: 100%;
+}
+
+  .col-6 {
+    width: 45%; }
 
 
-  /* .col-6 {
-    width: 50%; } */
-
+    .first-part {
+  display: flex;
+  flex-direction: row;
+}
 
 
 .filter {
