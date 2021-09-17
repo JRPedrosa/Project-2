@@ -72,6 +72,27 @@ router.get("/listexercise", requireLogin, async (req, res, next) => {
   res.render("workout/exercise-list", { allExercises });
 });
 
+// router.get('/search', async (req, res) => {
+//   try {
+//     const search = req.query.search;
+//     console.log('keyword', search);
+//     const results = await exec.find({
+//       title: {
+//         $regex: '.*' + search + '.*',
+//         $options: 'i'
+//       }
+//     })
+//     console.log('results', results);
+//     res.render('results', {
+//       results,
+    
+//     });
+//   } catch (e) {
+//     res.render('error');
+//     console.log(`An error occurred ${e}`);
+//   }
+// });
+
 
 //First step in creating workout
 router.get("/create-workout", requireLogin, async (req, res, next) => {
@@ -161,6 +182,8 @@ router.get("/listexercise/:id", requireLogin, async (req, res) => {
     const exercise = await getById(req.params.id);
     res.render("workout/exercise-detail", exercise);
   });
+
+
 
 
 
