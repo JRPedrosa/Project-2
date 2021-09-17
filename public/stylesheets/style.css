@@ -218,17 +218,21 @@ color:#212529
   }
 
 .dropdown-menu {
-
-
+font-size: 12px;
 background-color: #66A182;
 border-radius: 10px;
 color: #F7F7F7;
 }
 
 .dropdown-main {
+font-size: 14px;
 color: #F7F7F7 !important;
-
 }
+
+.dropdown-main:hover {
+  
+  color: #212529 !important;
+  }
 
 
 
@@ -304,7 +308,7 @@ color: #F7F7F7 !important;
 .workout-goals {
    background-color: #66A182;
    color: #ffffff;
-   border-radius: 10px;
+   border-radius: 1000px;
    font-weight: 400;
    padding: 5px 10px;
    border: 1px solid black;
