@@ -23,7 +23,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-               <a class="navbar-brand" href="/workout-list">FitHub💪</a>
+               <a class="navbar-brand" href="/workout-list"><span class="nav-logo">FitHub💪</span></a>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                </button>
@@ -35,28 +35,25 @@
                   <div class="first-part">
 
                      <li class="nav-item">
-                        <a class="nav-link" href="/create-workout">Create workout plan</a>
+                        <a class="nav-link" href="/create-workout"><span class="nav-text">Create Workout Plan</span></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/listexercise">Exercise Directory</a>
+                        <a class="nav-link" href="/listexercise"><span class= "nav-text">Exercise Directory</span></a>
                      </li>
 
                   </div>
                   
-                  <div class="profile nav-item profileAndLogout">
-                     
-
-                         <li class="nav-item dropdown">
-          
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-                        <a class="nav-link dropdown-toggle" href="/profile/{{loggedInUserID}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Welcome {{loggedInUser}}</a>
-                     
-                     
+                  <div class="profile">
+                     <li class="nav-item dropdown profileAndLogout">
+                        <a class="nav-link dropdown-toggle" href="/profile/{{loggedInUserID}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Welcome {{loggedInUser}}
+                        </a>
+                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item main" href="/profile/{{loggedInUserID}}"><span class="dropdown-main">Profile</span></a></li>
+                            <li><a class="dropdown-item" href="/my-workouts/{{loggedInUserID}}">My Workouts</a></li>
+                            <li><a class="dropdown-item" href="/edit-profile/{{loggedInUserID}}">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="/edit-account/{{loggedInUserID}}">Edit Account</a></li>
+                       </ul>
                      </li>
                      <li class="nav-item profileAndLogout">
                         <form action="/logout" method="POST">

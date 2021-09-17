@@ -47,12 +47,12 @@
  </div>
 
  <div class = "workout-description">
-     <p class="workout-caption">{{description}}</p>
+     <p class="workout-caption">"{{description}}"</p>
 </div>
 
 
 <div class = "workout-footer">
-<p  class= "workout-goals"> {{workoutGoals}} </p>
+<p  class= "workout-goals">  {{workoutGoals}} </p>
 
 <form action="/workout/{{id}}/like" method="POST">
         <button class="btn btn-outline-secondary like-button" type="submit"> 💪  {{like.length}}</button>
@@ -77,30 +77,34 @@
                 </div>
             </div> --}}
 
+<div class="commentSection">
+    <div class = "workout-comments">    
+        {{!-- <p class="bold"> All Comments:</p> --}}
 
- <div class = "workout-comments"    >    
-<p> All Comments:</p>
-{{#each reviews}}
-<p>Review: {{comment}}</p>
-<p>by: {{name}} </p>
+            {{#each reviews}}
 
-{{/each}}
+              <p>{{comment}}</p>
+              <p><span>by: </span>{{name}}</p>
+              <hr>
+
+            {{/each}}
+
+    </div>
 
 
+    {{!-- <div class = "workout-comment-post">
+    <form action="/workout/{{id}}/comment" method="POST">
+        <textarea name="commentBody" placeholder="Add a comment.."></textarea>
+        <button type="submit">Comment</button>
+    </form>
+    </div> --}}
 
-{{!-- <div class = "workout-comment-post">
-<form action="/workout/{{id}}/comment" method="POST">
-    <textarea name="commentBody" placeholder="Add a comment.."></textarea>
-    <button type="submit">Comment</button>
-</form>
-</div> --}}
-
-<div class = "workout-comment-post">
-<form action="/workout/{{id}}/comment" method="POST">
-    <textarea name="comment" placeholder="Add a comment.."></textarea>
-    <button type="submit">Comment</button>
-</form>
-</div>
+    <div class = "workout-comment-post">
+      <form action="/workout/{{id}}/comment" method="POST">
+          <textarea name="comment" placeholder="Add a comment.."></textarea>
+          <button type="submit">Comment</button>
+      </form>
+    </div>
 
 
 </div>

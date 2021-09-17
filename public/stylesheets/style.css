@@ -54,6 +54,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .auth-center {
@@ -63,11 +64,23 @@ p {
   background-color: #212529;
   color: #F7F7F7;
   border-radius: 30px;
+  border-color: #66A182;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  
 }
+
+/* 
+@keyframes auth-center {
+  from {
+    background-color: #66a182;
+  }
+  to {
+    background-color: #212529;
+  }
+} */
 
 .auth-center form {
   height: 60%;
@@ -75,32 +88,42 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  
 }
 
 .auth-center input {
   width: 120%;
   padding: 0 30px;
-  height: 50px;
+  height: 30px;
 }
 
 .auth-center > a {
-  background-color: #F7F7F7;
-  width: 50%;
-  padding: 10px 0;
-  color: #212529;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 30px;
+
+  
 }
 
 .auth-center form button {
   color: #F7F7F7;
   background-color: #21252900;
+  text-align: center;
+  width: 80%;
+  border-radius: 10px;
   
 }
 
 
+
+.auth-center form button:hover {
+  background-color:#66A182; 
+  color: #F7F7F7;
+  
+
+}
+
+
+
 .main-profile {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,6 +184,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: flex-end ;
+  color: #F7F7F7 !important;
   
 }
 
@@ -169,7 +193,7 @@ h1 {
 .profileAndLogout button {
   position: relative;
   border-radius: 50px;
-  color: white;
+  color: #F7F7F7;
   background-color: rgb(57, 102, 57);
 
 }
@@ -178,8 +202,34 @@ h1 {
 .navbar {
   background-color: #66A182 !important;
   border-radius: 10px;
-  color: #F7F7F7 !important
+  color: #F7F7F7 !important;
 }
+
+
+
+.nav-text {
+color:#212529
+
+}
+
+.nav-text:hover {
+    color:#F7F7F7
+  
+  }
+
+.dropdown-menu {
+
+
+background-color: #66A182;
+border-radius: 10px;
+color: #F7F7F7;
+}
+
+.dropdown-main {
+color: #F7F7F7 !important;
+
+}
+
 
 
 
@@ -284,6 +334,13 @@ h1 {
   margin-top: 1rem;
   border-radius: 10px;
 
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  align-content: center;
+  align-items: center;
+    
+
 }
 
 
@@ -293,11 +350,53 @@ h1 {
   margin-bottom: 1rem;
   margin-top: 1rem; }
 
-  .workout-caption {
-    display:flex;
-    justify-content:center
-    
-  }
+.workout-caption {
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 12px;
+  
+}
+
+
+
+.commentSection {
+  background-color: #66a182;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.workout-comments span {
+  font-weight: bolder;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+
+#reviewName {
+  color:black;
+}
+
+.commentSection textarea {
+  width: 100%;
+}
+
+.commentSection button {
+  border-radius: 10px;
+  border-color: #212529;
+  background-color: #F7F7F7;
+  color: #212529;
+}
+
+.commentSection button:hover {
+  background-color:  #66a182
+}
+
+
+
+
 
 /* Joao */
 
@@ -322,5 +421,12 @@ h1 {
 }
 
 .first {
-  height: 200px;
+  height: 100px;
+}
+
+
+
+
+.main-profile hr {
+  color: rgb(138, 118, 118) !important;
 }
