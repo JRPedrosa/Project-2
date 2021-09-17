@@ -97,10 +97,10 @@ p {
   height: 30px;
 }
 
-.auth-center > a {
+/* .auth-center > a {
 
   
-}
+} */
 
 .auth-center form button {
   color: #F7F7F7;
@@ -429,4 +429,34 @@ color: #F7F7F7 !important;
 
 .main-profile hr {
   color: rgb(138, 118, 118) !important;
+}
+
+
+.myWorkoutsButtonForm button {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(248, 37, 0);
+  color: white;
+  position: relative;
+  left: 50px;
+}
+
+/* #goal {
+  height: 15px;
+  margin-bottom: 5px;
+} */
+
+#editLink {
+
+}
+
+.myWorkoutsFooter form {
+  width: 105px;
+
+}
+
+.myWorkoutsFooter p {
+  width: 105px;
+  text-align: center;
+
 }
