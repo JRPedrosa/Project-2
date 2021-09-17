@@ -308,7 +308,7 @@ color: #F7F7F7 !important;
 .workout-goals {
    background-color: #66A182;
    color: #ffffff;
-   border-radius: 1000px;
+   border-radius: 90px;
    font-weight: 400;
    padding: 5px 10px;
    border: 1px solid black;
@@ -438,20 +438,18 @@ color: #F7F7F7 !important;
 
 .myWorkoutsButtonForm button {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 90px;
   background-color: rgb(248, 37, 0);
   color: white;
   position: relative;
   left: 50px;
+  top: 3px;
 }
 
-/* #goal {
-  height: 15px;
-  margin-bottom: 5px;
-} */
 
 #editLink {
-
+  position: relative;
+  top: 5px;
 }
 
 .myWorkoutsFooter form {
@@ -464,3 +462,6 @@ color: #F7F7F7 !important;
   text-align: center;
 
 }
+
+
+
