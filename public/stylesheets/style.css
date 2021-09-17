@@ -266,6 +266,10 @@ color: #F7F7F7 !important;
 .filter button {
   border-radius: 50px;
   color:#F7F7F7;
+  background-color: rgb(57, 102, 57);
+}
+
+.filter button:hover {
   background-color: #66A182;
 }
 
@@ -414,6 +418,8 @@ color: #F7F7F7 !important;
 
 
 
+
+
 /* Joao */
 
 
@@ -456,6 +462,11 @@ color: #F7F7F7 !important;
   position: relative;
   left: 50px;
   top: 3px;
+}
+
+.myWorkoutsButtonForm button:hover {
+  color:rgb(248, 37, 0);
+  border: 1px solid red;
 }
 
 
