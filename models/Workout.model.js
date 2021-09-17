@@ -33,28 +33,29 @@ const workoutSchema = mongoose.Schema(
         ref: "User"
     },
 
-    reviews: [
-      {
-        name: String, 
-        comment: String,
-    },
-    ],
+    // reviews: [
+    //   {
+    //     name: String, 
+    //     comment: String,
+    // },
+    // ],
     
-  //   comments: [{
-  //     commentBody: {
-  //         type: String
-  //     },
-  //     commentUser: {
-  //         type: mongoose.Schema.Types.ObjectId,
-  //         ref: "User"
-  //     },
-  //     commentDate: {
-  //         type: Date,
-  //         default: Date.now
-  //     }
-  // }],
+    comments: [{
+      commentBody: {
+          type: String
+      },
+      commentUser: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User"
+      },
+      commentDate: {
+          type: Date,
+          default: Date.now
+      }
+  }],
 
-    like: [{
+    
+  like: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Like' 
 

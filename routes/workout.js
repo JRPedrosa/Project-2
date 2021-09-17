@@ -72,26 +72,6 @@ router.get("/listexercise", requireLogin, async (req, res, next) => {
   res.render("workout/exercise-list", { allExercises });
 });
 
-// router.get('/search', async (req, res) => {
-//   try {
-//     const search = req.query.search;
-//     console.log('keyword', search);
-//     const results = await exec.find({
-//       title: {
-//         $regex: '.*' + search + '.*',
-//         $options: 'i'
-//       }
-//     })
-//     console.log('results', results);
-//     res.render('results', {
-//       results,
-    
-//     });
-//   } catch (e) {
-//     res.render('error');
-//     console.log(`An error occurred ${e}`);
-//   }
-// });
 
 
 //First step in creating workout
@@ -153,7 +133,7 @@ router.post("/workout/:id", async (req, res) => {
 router.get("/workout-list", requireLogin, async (req, res, next) => {  
   const workouts = await Workout.find()
   .populate("user")
-  // .populate("comments.commentUser");
+  .populate("comments.commentUser");
 
   res.render("workout/workout-list", { workouts });
 });
@@ -228,28 +208,28 @@ router.post("/workout/:id/like", async (req, res) => {
 
 // Comments
 
-// router.post("/workout/:id/comment", async (req, res) => { 
+router.post("/workout/:id/comment", async (req, res) => { 
   
-//   const newComment = {
-//     commentBody: req.body.commentBody,
-//     commentUser: req.session.currentUser.username
-//   }
+  const newComment = {
+    commentBody: req.body.commentBody,
+    commentUser: req.session.currentUser.username
+  }
  
 
-//   await Workout.findByIdAndUpdate(req.params.id, {
-//     $push: { newComment },
-//   });
-//   res.redirect("/workout-list");
-// }); 
-
-router.post("/workout/:id/comment", async (req, res) => { 
-  const comment  = req.body.comment;
-  const name = req.session.currentUser.username;
   await Workout.findByIdAndUpdate(req.params.id, {
-    $push: { reviews: { name, comment } },
+    $push: { newComment },
   });
   res.redirect("/workout-list");
-});
+}); 
+
+// router.post("/workout/:id/comment", async (req, res) => { 
+//   const comment  = req.body.comment;
+//   const name = req.session.currentUser.username;
+//   await Workout.findByIdAndUpdate(req.params.id, {
+//     $push: { reviews: { name, comment } },
+//   });
+//   res.redirect("/workout-list");
+// });
 
 
 
