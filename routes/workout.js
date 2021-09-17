@@ -63,6 +63,23 @@ function getByMuscle(muscle) {
 }
 
 
+function getByName(name) {
+  let getByName = {
+    method: "GET",
+    url: `https://exercisedb.p.rapidapi.com/exercises/name/${name}`,
+    headers: {
+      "x-rapidapi-host": process.env.API_HOST,
+      "x-rapidapi-key": process.env.API_KEY
+    },
+  };
+
+  return axios.request(getByName).then(function (response) {
+    const exec = response.data;
+    return exec;
+  });
+}
+
+
 // ROUTES BEGIN HERE  // 
 
 //General exercise list
@@ -71,6 +88,14 @@ router.get("/listexercise", requireLogin, async (req, res, next) => {
 
   res.render("workout/exercise-list", { allExercises });
 });
+
+//Search exercises by name
+router.post("/listexercise/search", async (req, res) => {
+  const searchTerm = req.body.search;
+  const exerciseByName = await getByName(searchTerm);
+
+  res.render("workout/exercise-list", {allExercises: exerciseByName})
+})
 
 
 
@@ -212,12 +237,12 @@ router.post("/workout/:id/comment", async (req, res) => {
   
   const newComment = {
     commentBody: req.body.commentBody,
-    commentUser: req.session.currentUser.username
+    commentUser: req.session.currentUser
   }
  
 
   await Workout.findByIdAndUpdate(req.params.id, {
-    $push: { newComment },
+    $push: { comments: newComment },
   });
   res.redirect("/workout-list");
 }); 

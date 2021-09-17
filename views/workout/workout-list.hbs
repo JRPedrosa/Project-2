@@ -42,7 +42,7 @@
 
 <div class="workout-post">
         <img src={{user.photo}} alt="user profile pic" style="height: 40px; width: 40px; border-radius:50px;"> 
-        <p class="workout-posted-by"> by <a href="/profile/{{user.id}}">{{user.username}}</a>
+        <p class="workout-posted-by"> by <a href="/profile/{{user.id}}">{{ user.username}}</a>
         </p>
  </div>
 
@@ -67,18 +67,21 @@
 
     {{#each comments}}
             <div class="media mt-3">
-                <a class="mr-3" href="#">
-                    <img id="comment-user-picture" src="{{commentUser.photo}}">
-                </a>
-                </div>
                 <div class="media-body">
-                    <a href="/profile/{{commentUser.id}}"><h5 class="mt-0">{{commentUser.username}}</h5></a>
-                    <p>hdsBVsidhb{{commentBody}}</p>
-                    <small>{{commentDate}}</small>
+                    <p>{{commentBody}}</p>
                 </div>
+                <div class="mr-3" >
+                    <img id="comment-user-picture" src="{{commentUser.photo}}" style="height: 25px; width: 25px; border-radius:50px";>
+                       <a href="/profile/{{commentUser.id}}"><p class="mt-0">{{commentUser.username}}</p></a>
+                </div>
+                </div>
+                <hr>
+             {{/each}}
             </div> 
-        </div>
-         {{/each}}
+           
+        
+         
+     
 
 {{!-- <div class="commentSection">
     <div class = "workout-comments">    
